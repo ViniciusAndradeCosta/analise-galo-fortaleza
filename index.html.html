@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vaccarini · Fortaleza × Atlético-MG</title>
+<meta name="description" content="Lesões do Fortaleza (2021–2023) e do Atlético-MG (2026) sob o preparador físico Adrián Vaccarini.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#0a0b0d; --bg2:#0f1013; --panel:#131418; --panel2:#1a1b20; --line:#24262c; --line2:#33363d;
+  --fg:#f2f2ef; --muted:#a3a5ab; --faint:#7a7d85; --ctx:#8d9098;
+  --cam:#f2f2ef; --for:#4b8ef7; --ouro:#f2c200;
+  --display:"Barlow Condensed","Arial Narrow",sans-serif;
+  --body:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r:16px; --r2:12px;
+  --shadow:0 1px 0 rgba(255,255,255,.03) inset,0 20px 40px -24px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--fg)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ouro);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;flex:none}
+.sw.cam{background:var(--cam)} .sw.for{background:var(--for)} .sw.ctx{background:var(--line2)}
+.c-cam{color:var(--cam)} .c-for{color:var(--for)}
+
+/* topo */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:radial-gradient(800px 420px at 12% 20%,rgba(75,142,247,.13),transparent 70%),radial-gradient(800px 420px at 92% 10%,rgba(255,255,255,.07),transparent 70%),var(--bg)}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.03) 0 48px,transparent 48px 96px);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.hero-in{position:relative;padding-block:64px 44px}
+.mark{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.mark svg{width:44px;height:44px;display:block}
+.mark b{font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.kicker{display:inline-flex;align-items:center;gap:10px;margin:0 0 14px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.kicker::before{content:"";width:28px;height:2px;background:var(--ouro);border-radius:2px}
+h1{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(46px,8.5vw,104px);line-height:.92;text-transform:uppercase;text-wrap:balance}
+h1 .x{color:var(--ouro);font-weight:500;padding-inline:.12em}
+h1 span{white-space:nowrap}
+.lede{margin:22px 0 0;max-width:70ch;font-size:16.5px;color:#cfd0d3;text-wrap:pretty}
+.lede + .lede{margin-top:12px}
+.lede b{font-weight:600;color:var(--fg)}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);border:1px solid var(--line2);background:rgba(255,255,255,.02);border-radius:999px;padding:5px 12px}
+.pill .sw{border-radius:50%;width:9px;height:9px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(10,11,13,.86);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;flex:none;text-decoration:none;padding-block:10px}
+.brand svg{width:24px;height:24px;display:block}
+.brand span{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.04em;text-transform:uppercase}
+.nav-links{display:flex;gap:2px;overflow-x:auto;padding-block:10px;scrollbar-width:none;min-width:0;margin-left:auto}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{flex:none;text-decoration:none;font-size:13px;font-weight:500;color:var(--muted);padding:6px 11px;border-radius:8px;white-space:nowrap;transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--fg);background:var(--panel2)}
+.nav-links a.on{color:var(--fg);background:var(--panel2);box-shadow:inset 0 -2px 0 var(--ouro)}
+@media (max-width:720px){.brand span{display:none}}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.kpi{background:var(--panel);padding:18px 20px 16px;min-width:0}
+.k-lab{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.k-vals{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;margin-top:8px}
+.k-v{white-space:nowrap;font-family:var(--display);font-weight:700;font-size:clamp(30px,2.9vw,38px);line-height:1;font-variant-numeric:tabular-nums}
+.k-v small{font-family:var(--body);font-size:11px;font-weight:500;color:var(--faint);letter-spacing:.04em;margin-left:5px;text-transform:uppercase}
+.k-foot{margin-top:8px;font-size:12px;color:var(--faint)}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.kpis{grid-template-columns:1fr}}
+
+/* seções */
+main{display:flex;flex-direction:column;gap:72px;padding-block:48px 72px}
+section{scroll-margin-top:72px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px 24px;margin-bottom:20px}
+.sec-head > div{min-width:0;max-width:72ch}
+.eyebrow{margin:0 0 8px;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.14em;color:var(--ouro)}
+h2{margin:0;font-weight:700;font-size:clamp(24px,3vw,32px);line-height:1.15;letter-spacing:-.02em}
+.sub{margin:8px 0 0;color:var(--muted);text-wrap:pretty}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;min-width:0;box-shadow:var(--shadow)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.grid2 > *{min-width:0}
+.h3{margin:0 0 14px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;letter-spacing:.06em;text-transform:uppercase;color:#d9dadd}
+.note{margin:14px 0 0;font-size:12.5px;color:var(--faint);line-height:1.6}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted);align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.seg{display:inline-flex;flex-wrap:wrap;gap:2px;padding:3px;border:1px solid var(--line2);border-radius:10px;background:var(--bg2)}
+.seg button{border:0;background:transparent;color:var(--muted);padding:7px 13px;border-radius:7px;cursor:pointer;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:7px}
+.seg button:hover{color:var(--fg)}
+.seg button[aria-pressed="true"]{background:var(--panel2);color:var(--fg);box-shadow:0 0 0 1px var(--line2) inset}
+.check{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer}
+.check input{accent-color:var(--ouro);width:16px;height:16px}
+.search{background:var(--bg2);border:1px solid var(--line2);border-radius:10px;color:var(--fg);padding:9px 14px;font-size:14px;width:260px;max-width:100%}
+.search:focus{outline:none;border-color:var(--ouro)}
+.search::placeholder{color:var(--faint)}
+
+/* placar */
+.board-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);box-shadow:var(--shadow)}
+.board{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:620px}
+.board th,.board td{padding:12px 18px;border-bottom:1px solid var(--line);text-align:right}
+.board th:first-child,.board td:first-child{text-align:left}
+.board thead th{vertical-align:bottom;background:linear-gradient(180deg,#17181d,var(--panel));padding-block:18px 14px;border-bottom:1px solid var(--line2)}
+.board .tn{display:block;font-family:var(--display);font-weight:700;font-size:22px;line-height:1.05;text-transform:uppercase;letter-spacing:.02em}
+.board .tp{display:block;font-size:11.5px;font-weight:400;color:var(--faint);margin-top:3px}
+.board .tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.board th.ctx .tn{color:var(--ctx);font-size:18px}
+.board td{font-size:14px}
+.board td.lab{color:#d9dadd}
+.board td.big{font-family:var(--display);font-weight:700;font-size:26px;line-height:1}
+.board td.ctx{color:var(--ctx)}
+.board .ctx{background:rgba(255,255,255,.012)}
+.board tr.sep td{padding:16px 18px 6px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro);background:var(--bg2);text-align:left}
+.board tbody tr:not(.sep):hover td{background:#17181c}
+.board.hide-ctx .ctx{display:none}
+.board.jan{min-width:560px}
+.board .short{display:none}
+@media (max-width:640px){.board.jan{min-width:0;table-layout:fixed}.board.jan th:first-child,.board.jan td:first-child{width:36%}.board.jan .full{display:none}.board.jan .short{display:inline}.board.jan .tag{display:none}.board.jan th,.board.jan td{padding:10px 8px;font-size:13px}.board.jan .tn{font-size:16px}.board.jan .tp,.board.jan .tag{font-size:10px}.board.jan td.big{font-size:21px}}
+.board .na{color:var(--faint)}
+.board .hide{display:none}
+.board th .tn.f22{color:#9cc0ff}
+.board td.f22.big{color:#9cc0ff}
+.board tr:last-child td{border-bottom:0}
+.board.anos{min-width:720px}
+.board.anos th.y26 .tn{color:var(--ouro)}
+.board.anos td.y26{background:rgba(242,194,0,.05)}
+.board.anos td.big.y26{color:var(--ouro)}
+.dash-key{display:inline-block;width:16px;height:0;border-top:3px solid #c3c5cb;border-radius:2px}
+
+
+/* gráficos */
+.chart{position:relative;width:100%}
+.chart svg{display:block;overflow:visible}
+.chart text{fill:var(--muted);font-family:var(--body);font-size:11.5px}
+.chart text.strong{fill:var(--fg);font-weight:600}
+.chart .hit{cursor:pointer}
+.tl + .tl{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.tl-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 10px;margin-bottom:8px}
+.tl-h .h3{margin:0}
+.tl-h .cnt{font-size:12.5px;color:var(--faint)}
+
+/* barras horizontais */
+.hb{display:flex;flex-direction:column;gap:12px}
+.hb-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 14px;align-items:center}
+.hb-row .nm{font-size:13.5px;font-weight:500}
+.hb-bars{display:flex;flex-direction:column;gap:4px;min-width:0}
+.hb-bar{display:flex;align-items:center;gap:8px;min-width:0}
+.hb-bar i{display:block;height:10px;border-radius:3px;min-width:2px;transition:width .4s ease}
+.hb-bar span{font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:480px){.hb-row{grid-template-columns:1fr}}
+
+/* corpo */
+.bodies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.body-card{background:radial-gradient(260px 300px at 50% 45%,#16171c,var(--bg2));border:1px solid var(--line);border-radius:var(--r2);padding:18px 10px 12px;text-align:center;min-width:0}
+.body-card .h3{justify-content:center}
+.body-card svg{width:100%;max-width:250px;height:auto;display:block;margin:0 auto;overflow:visible}
+.body-card .ni{font-size:12px;color:var(--faint);margin-top:6px;min-height:18px}
+.body-list{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:4px 22px;font-size:13px}
+.body-list div{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line);padding-block:7px}
+.body-list span:last-child{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.body-list b{font-weight:600}
+@media (max-width:480px){.bodies{gap:8px}.body-card{padding:12px 4px 8px}.body-card .h3{font-size:11px}}
+
+/* jogadores */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:10px}
+.pcard{position:relative;text-align:left;background:var(--bg2);border:1px solid var(--line);border-radius:var(--r2);padding:14px 14px 12px;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-width:0;transition:border-color .2s,transform .2s,background .2s}
+.pcard:hover{border-color:var(--line2);background:var(--panel2);transform:translateY(-2px)}
+.pcard::after{content:"";position:absolute;top:17px;right:14px;width:8px;height:8px;border-radius:50%;background:var(--cam)}
+.pcard.for::after{background:var(--for)}
+.pcard .pn{font-weight:600;font-size:15px;padding-right:16px}
+.pcard .pt{font-size:12px;color:var(--faint)}
+.pcard .ps{font-family:var(--display);font-weight:700;font-size:30px;line-height:1}
+.pcard .ps small{font-family:var(--body);font-weight:500;font-size:12px;color:var(--muted);margin-left:4px}
+.longest{display:flex;flex-direction:column;gap:4px}
+.lrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;cursor:pointer;padding:8px 10px;border-radius:10px;border:0;background:none;text-align:left;width:100%}
+.lrow:hover{background:var(--panel2)}
+.lrow .who{font-size:14px;font-weight:600;min-width:0}
+.lrow .who small{font-weight:400;color:var(--faint);margin-left:6px}
+.lrow .d{font-family:var(--display);font-weight:700;font-size:26px;line-height:1;white-space:nowrap}
+.lrow .d small{font-family:var(--body);font-weight:500;font-size:12px;color:var(--muted)}
+.lrow .track{grid-column:1/-1;height:5px;border-radius:3px;background:var(--bg2);overflow:hidden}
+.lrow .track i{display:block;height:100%;border-radius:3px}
+
+/* tabela */
+.tbl-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.tbl-wrap{overflow:auto;max-height:640px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);box-shadow:var(--shadow)}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+.tbl th{text-align:left;font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:13px 12px;border-bottom:1px solid var(--line2);white-space:nowrap;position:sticky;top:0;background:#16171b;z-index:1}
+.tbl th button{border:0;background:none;padding:0;cursor:pointer;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;display:inline-flex;gap:4px;align-items:center}
+.tbl th button:hover{color:var(--fg)}
+.tbl th .arr{color:var(--ouro)}
+.tbl td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tbody tr{cursor:pointer}
+.tbl tbody tr:nth-child(even){background:rgba(255,255,255,.012)}
+.tbl tbody tr:hover{background:var(--panel2)}
+.tbl td.n,.tbl th.n{text-align:right}
+.tbl td.nw{white-space:nowrap}
+.tbl td.desc{min-width:260px;color:var(--muted)}
+.tbl td .sw{margin-right:6px}
+.tag-n{display:inline-block;margin-left:6px;font-size:10px;font-weight:600;letter-spacing:.04em;padding:1px 7px;border-radius:999px;border:1px solid var(--line2);color:var(--faint);text-transform:uppercase}
+.open{color:var(--ouro);font-weight:600}
+.count{font-size:13px;color:var(--faint);margin-top:10px}
+
+/* gaveta */
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(2px);z-index:40}
+.drawer{position:fixed;z-index:41;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--panel);border-left:1px solid var(--line2);padding:26px 22px 22px;overflow-y:auto;box-shadow:-30px 0 60px rgba(0,0,0,.6)}
+.drawer .x{position:absolute;top:16px;right:16px;border:1px solid var(--line2);background:var(--bg2);border-radius:10px;width:36px;height:36px;cursor:pointer}
+.drawer h3{margin:0;font-family:var(--display);font-weight:700;font-size:38px;line-height:1;text-transform:uppercase;padding-right:44px}
+.drawer .dt{color:var(--muted);font-size:13px;margin-top:6px}
+.drawer ol{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.drawer li{border:1px solid var(--line);border-radius:var(--r2);padding:13px 14px;background:var(--bg2)}
+.drawer .when{font-size:13px;font-weight:600}
+.drawer .what{font-size:13.5px;color:#d9dadd;margin-top:4px}
+.drawer .meta{font-size:12px;color:var(--faint);margin-top:6px}
+@media (max-width:640px){.drawer{top:auto;left:0;width:100%;max-height:82vh;border-left:0;border-top:1px solid var(--line2);border-radius:18px 18px 0 0}}
+
+.tip{position:fixed;z-index:50;pointer-events:none;background:rgba(26,27,32,.97);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;font-size:12.5px;line-height:1.5;max-width:290px;box-shadow:0 16px 40px rgba(0,0,0,.6)}
+.tip .t1{font-weight:600}
+.tip .t2{color:var(--muted)}
+
+details{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px}
+details + details{margin-top:10px}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--ouro);font-size:20px;font-weight:400;line-height:1}
+details[open] summary::after{content:"−"}
+details ul{margin:14px 0 0;padding-left:1.2em;color:var(--muted);display:flex;flex-direction:column;gap:8px;max-width:92ch;font-size:14px}
+details a{color:var(--muted);word-break:break-word}
+details a:hover{color:var(--fg)}
+footer{border-top:1px solid var(--line);padding-block:28px 44px;color:var(--faint);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mk" viewBox="0 0 48 48">
+    <rect x="1" y="1" width="46" height="46" rx="12" fill="#131418" stroke="#33363d"/>
+    <rect x="11" y="12" width="6" height="24" rx="3" fill="#4b8ef7"/>
+    <rect x="21" y="18" width="6" height="18" rx="3" fill="#f2f2ef"/>
+    <rect x="31" y="8" width="6" height="28" rx="3" fill="#f2f2ef" opacity=".55"/>
+    <rect x="9" y="39" width="30" height="2" rx="1" fill="#f2c200"/>
+  </symbol>
+</svg>
+
+<header class="hero" id="topo">
+  <div class="wrap hero-in">
+    <div class="mark"><svg aria-hidden="true"><use href="#mk"/></svg><b>Relatório de lesões</b></div>
+    <p class="kicker">Preparador físico Adrián Vaccarini</p>
+    <h1><span class="c-for">Fortaleza</span> <span><span class="x">×</span>Atlético-MG</span></h1>
+    <p class="lede">Com Vaccarini, o Fortaleza teve <b class="c-for">64 lesões</b> em quase 22 meses, perto de <b class="c-for">3 por mês</b>. O Atlético-MG teve <b>37 lesões</b> em 8 meses e meio, perto de <b>4 por mês</b>. Olhando só esses números, o Galo de 2026 se machuca mais e cada lesão dura mais.</p>
+    <p class="lede">Só que a imprensa noticia mais lesões hoje do que em 2021, em todos os clubes. Por isso a comparação mais justa é com os outros times da Série A na mesma época. Com Vaccarini, o Fortaleza teve <b class="c-for">4,7 lesões a cada 10 jogos</b>, menos que um clube típico da Série A da época (5,4); depois que ele saiu, foram 6,3, um pouco acima do típico (6,1). O Atlético já tinha menos lesões que o típico antes dele (5,0 contra 6,0) e continuou abaixo com ele: <b>6,3 contra 7,0</b>, contando até 29/09, último dia com dados dos outros clubes.</p>
+    <div class="meta-row">
+      <span class="pill"><i class="sw for"></i>Fortaleza · 12/05/2021 a 06/03/2023</span>
+      <span class="pill"><i class="sw cam"></i>Atlético-MG · 27/02 a 10/11/2026</span>
+      <span class="pill">Dados até 10/11/2026</span>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Seções">
+  <div class="wrap">
+    <a class="brand" href="#topo"><svg aria-hidden="true"><use href="#mk"/></svg><span>Vaccarini</span></a>
+    <div class="nav-links">
+      <a href="#placar">Placar</a>
+      <a href="#janela">Mesmo período</a>
+      <a href="#anos">Galo ano a ano</a>
+      <a href="#corpo">Onde dói</a>
+      <a href="#linha">Linha do tempo</a>
+      <a href="#tipos">Tipos e locais</a>
+      <a href="#jogadores">Jogadores</a>
+      <a href="#lista">Todas as lesões</a>
+      <a href="#notas">Notas</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="kpis" id="kpis"></div>
+
+  <section id="placar">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">01</p>
+        <h2>Placar dos dois períodos</h2>
+        <p class="sub">Só contam as lesões que começaram enquanto Vaccarini estava no clube. Como os períodos têm tamanhos diferentes, as linhas em destaque dividem as lesões pelo número de jogos. As colunas em cinza mostram o mesmo clube sem ele, para comparar.</p>
+      </div>
+      <label class="check"><input type="checkbox" id="ver-ctx" checked> Mostrar o clube sem Vaccarini</label>
+    </div>
+    <div class="board-wrap"><table class="board" id="board"></table></div>
+    <p class="note">Lesões musculares incluem os edemas musculares (inchaço no músculo), que o Fortaleza costumava registrar com esse nome. “Clube típico” é o do meio da lista: metade da Série A teve mais lesões por jogo e metade teve menos. * No Atlético com Vaccarini, a comparação com a Série A vai até 29/09/2026, último dia com dados dos outros clubes.</p>
+  </section>
+
+  <section id="janela">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">02</p>
+        <h2>Mesmo período do ano</h2>
+        <p class="sub">Para comparar épocas parecidas do calendário: o Galo de 27/02 a 10/11/2026 contra o Fortaleza nas mesmas datas de 2022, um ano inteiro com Vaccarini, e de 2021, a partir de 12/05, quando ele chegou.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Temporada do Fortaleza para comparar">
+        <button type="button" data-jan="ambos" aria-pressed="true">Fortaleza 2021 e 2022</button>
+        <button type="button" data-jan="f21" aria-pressed="false">Só 2021</button>
+        <button type="button" data-jan="f22" aria-pressed="false">Só 2022</button>
+      </div>
+    </div>
+    <div class="board-wrap"><table class="board jan" id="jan-board"></table></div>
+    <div class="panel" style="margin-top:16px">
+      <div class="tl-h"><p class="h3">Lesões somadas ao longo do ano</p><div class="legend" id="jan-legend"></div></div>
+      <div class="chart" id="jan-chart"></div>
+      <p class="note" id="jan-note"></p>
+    </div>
+  </section>
+
+  <section id="anos">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">03</p>
+        <h2>O Galo ano a ano</h2>
+        <p class="sub">O Atlético-MG de 2026, com Vaccarini, comparado com o próprio Atlético nos anos anteriores, sempre no mesmo período do calendário: de 27/02 a 10/11. Assim dá para ver se 2026 foge do que o clube costumava ter.</p>
+      </div>
+      <div class="legend"><span><i class="sw cam"></i>Galo antes de Vaccarini</span><span><i class="sw" style="background:var(--ouro)"></i>Galo 2026, com Vaccarini</span><span><i class="dash-key"></i>clube típico da Série A no ano</span></div>
+    </div>
+    <div class="panel">
+      <p class="h3">Lesões a cada 10 jogos, de 27/02 a 10/11 de cada ano</p>
+      <div class="chart" id="anos-chart"></div>
+      <p class="note" id="anos-resumo"></p>
+    </div>
+    <div class="board-wrap" style="margin-top:16px"><table class="board anos" id="anos-board"></table></div>
+    <p class="note">“Clube típico” é o do meio da lista da Série A naquele ano: metade teve mais lesões por jogo e metade teve menos. A imprensa noticia mais lesões a cada ano, por isso comparar o Galo com o clube típico de cada ano é mais justo do que comparar os números brutos de anos diferentes. Em 2026, a comparação com a Série A vai até 29/09, último dia com dados dos outros clubes. Em 2025, 2 lesões do Atlético (Lyanco e Júnior Santos) estão sem data de volta no banco de dados, por isso os dias de desfalque desse ano podem estar um pouco abaixo do real.</p>
+  </section>
+
+  <section id="corpo">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">04</p>
+        <h2>Onde dói</h2>
+        <p class="sub">Em que parte do corpo foram as lesões de cada período com Vaccarini. Quanto maior o círculo, mais lesões naquele lugar; os dois bonecos usam o mesmo tamanho de círculo. Passe o mouse ou toque num círculo para ver os jogadores.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Medida do mapa do corpo">
+        <button type="button" data-cm="n" aria-pressed="true">Número de lesões</button>
+        <button type="button" data-cm="pct" aria-pressed="false">% do total</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="bodies">
+        <div class="body-card"><p class="h3"><span class="sw for"></span>Fortaleza com Vaccarini</p><div id="body-for"></div><div class="ni" id="ni-for"></div></div>
+        <div class="body-card"><p class="h3"><span class="sw cam"></span>Atlético-MG com Vaccarini</p><div id="body-cam"></div><div class="ni" id="ni-cam"></div></div>
+      </div>
+      <div class="body-list" id="body-list"></div>
+    </div>
+  </section>
+
+  <section id="linha">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">05</p>
+        <h2>Quando cada lesão começou e quanto durou</h2>
+        <p class="sub">Cada barra vai do dia da lesão até a volta do jogador: quanto mais longa, mais tempo ele ficou fora. Os nomes aparecem nas lesões de mais de 4 semanas. Cada gráfico mostra o seu período. Toque numa barra para ver o histórico do jogador.</p>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="tl">
+        <div class="tl-h"><p class="h3"><span class="sw for"></span>Fortaleza · 12/05/2021 a 06/03/2023</p><span class="cnt">64 lesões · 135 jogos</span></div>
+        <div class="chart" id="tl-for"></div>
+      </div>
+      <div class="tl">
+        <div class="tl-h"><p class="h3"><span class="sw cam"></span>Atlético-MG · 27/02 a 10/11/2026</p><span class="cnt">37 lesões · 52 jogos</span></div>
+        <div class="chart" id="tl-cam"></div>
+      </div>
+      <p class="note"><span class="open">▸</span> o jogador ainda não tinha voltado em 10/11/2026, ou voltou depois do fim do período.</p>
+    </div>
+  </section>
+
+  <section id="tipos">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">06</p>
+        <h2>Que lesões foram e onde</h2>
+        <p class="sub">Quantas lesões de cada tipo e em cada parte do corpo. O primeiro número é a quantidade; o segundo diz quanto isso representa do total do período.</p>
+      </div>
+      <div class="legend"><span><i class="sw for"></i>Fortaleza com Vaccarini</span><span><i class="sw cam"></i>Atlético-MG com Vaccarini</span></div>
+    </div>
+    <div class="grid2">
+      <div class="panel">
+        <p class="h3">Tipo de lesão</p>
+        <div class="hb" id="hb-tipo"></div>
+        <p class="note">Edema muscular é um inchaço no músculo da coxa, da panturrilha ou do glúteo. O banco de dados o classifica como trauma, mas na prática é uma lesão muscular. O Fortaleza registrava muitas lesões assim.</p>
+      </div>
+      <div class="panel">
+        <p class="h3">Local do corpo</p>
+        <div class="hb" id="hb-local"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="jogadores">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">07</p>
+        <h2>Jogadores</h2>
+        <p class="sub">Quem se machucou mais de uma vez em cada período e as lesões que deixaram o jogador mais tempo fora. Toque num nome para ver o histórico.</p>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="panel"><p class="h3">Mais de uma lesão</p><div class="cards" id="cards"></div></div>
+      <div class="panel"><p class="h3">Afastamentos mais longos</p><div class="longest" id="longest"></div></div>
+    </div>
+  </section>
+
+  <section id="lista">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">08</p>
+        <h2>Todas as lesões</h2>
+        <p class="sub">Clique no nome de uma coluna para ordenar. Para quem ainda não voltou, os dias fora contam até 10/11/2026.</p>
+      </div>
+    </div>
+    <div class="tbl-tools">
+      <div class="seg" role="group" aria-label="Filtrar por time">
+        <button type="button" data-tf="" aria-pressed="true">Os dois</button>
+        <button type="button" data-tf="for" aria-pressed="false"><i class="sw for"></i>Fortaleza</button>
+        <button type="button" data-tf="cam" aria-pressed="false"><i class="sw cam"></i>Atlético-MG</button>
+      </div>
+      <input class="search" id="busca" type="search" placeholder="Buscar jogador, tipo, local…" aria-label="Buscar na lista">
+    </div>
+    <div class="tbl-wrap"><table class="tbl"><thead><tr id="thead"></tr></thead><tbody id="tbody"></tbody></table></div>
+    <p class="count" id="count"></p>
+  </section>
+
+  <section id="notas">
+    <details open>
+      <summary>Como os números foram feitos</summary>
+      <ul>
+        <li><b>Quais lesões contam:</b> só as que começaram enquanto Vaccarini estava no clube. Fortaleza: de 12/05/2021 a 06/03/2023. Atlético-MG: de 27/02/2026 até 10/11/2026, o último dia com dados.</li>
+        <li><b>De onde vêm os dados:</b> lesões noticiadas pela imprensa, reunidas num banco de dados de um estudo sobre lesões no futebol, de 2021 a setembro de 2026. As lesões do Atlético a partir de 17/09/2026 e algumas datas de volta vieram de notícias (lista abaixo). Lesões em treino também entram.</li>
+        <li><b>Lesões a cada 10 jogos:</b> número de lesões dividido pelo número de jogos oficiais do período, vezes 10. Serve para comparar períodos de tamanhos diferentes: um período com mais jogos tende a ter mais lesões.</li>
+        <li><b>Dias de desfalque:</b> soma dos dias em que cada jogador ficou fora, contando só até o fim do período. Lesões sem data de volta não somam dias.</li>
+        <li><b>Lesões musculares:</b> incluem os edemas musculares, que são inchaços no músculo. O Fortaleza costumava registrar lesões musculares com esse nome, e sem juntar os dois a comparação ficaria injusta.</li>
+        <li><b>Comparação com a Série A:</b> lesões a cada 10 jogos de cada clube na mesma época. O clube típico é o do meio da lista. Só entram clubes com o calendário completo no banco de dados. No Atlético com Vaccarini, a comparação vai até 29/09/2026, último dia com dados dos outros clubes.</li>
+        <li><b>Por que comparar com a Série A:</b> a imprensa noticia mais lesões hoje do que em 2021, em todos os clubes. Comparar o Fortaleza de 2021 direto com o Atlético de 2026 deixaria o Atlético pior do que ele é.</li>
+        <li><b>Cuidado na leitura:</b> os números não provam o efeito do preparador físico. Elenco, técnico e calendário também mudam, e cada período tem poucas dezenas de lesões.</li>
+        <li>Alan Franco e Alan Minda (10/11/2026) se machucaram na seleção do Equador; o local da lesão ainda não foi informado.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>Fontes das notícias</summary>
+      <ul id="fontes"></ul>
+    </details>
+  </section>
+</main>
+
+<footer><div class="wrap">Página de torcedor, feita por curiosidade, sem ligação com o Clube Atlético Mineiro, o Fortaleza Esporte Clube ou Adrián Vaccarini. Dados até 10/11/2026.</div></footer>
+
+<div class="tip" id="tip" hidden></div>
+<div class="backdrop" id="backdrop" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-labelledby="drawer-nome">
+  <button type="button" class="x" id="drawer-x" aria-label="Fechar">✕</button>
+  <h3 id="drawer-nome"></h3>
+  <div class="dt" id="drawer-time"></div>
+  <ol id="drawer-lista"></ol>
+</aside>
+
+<script>
+const LES = [{"k": "for", "j": "Osvaldo", "ini": "2021-06-05", "fim": "2021-06-20", "aberto": false, "semData": false, "dias": 15, "tipo": "Trauma / ósseo", "local": "Panturrilha", "desc": "Edema na panturrilha direita", "obs": "", "noticia": false}, {"k": "for", "j": "Matheus Jussa", "ini": "2021-06-16", "fim": "2021-07-16", "aberto": false, "semData": false, "dias": 30, "tipo": "Articular / ligamentar", "local": "Ombro", "desc": "Lesão em articulação acromioclavicular do ombro direito", "obs": "", "noticia": false}, {"k": "for", "j": "Wellington Paulista", "ini": "2021-06-27", "fim": "2021-07-28", "aberto": false, "semData": false, "dias": 31, "tipo": "Trauma / ósseo", "local": "Panturrilha", "desc": "Edema muscular na panturrilha direita", "obs": "", "noticia": false}, {"k": "for", "j": "Felipe Alves", "ini": "2021-07-11", "fim": "2021-07-28", "aberto": false, "semData": false, "dias": 17, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema na coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Max Walef", "ini": "2021-07-28", "fim": "2021-08-08", "aberto": false, "semData": false, "dias": 11, "tipo": "Articular / ligamentar", "local": "Cotovelo", "desc": "Edema articular após contusão em cotovelo esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Osvaldo", "ini": "2021-08-21", "fim": "2021-09-03", "aberto": false, "semData": false, "dias": 13, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema na região posterior da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Daniel Guedes", "ini": "2021-09-03", "fim": "2021-09-14", "aberto": false, "semData": false, "dias": 11, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema da região adutora da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Felipe", "ini": "2021-09-03", "fim": "2021-09-25", "aberto": false, "semData": false, "dias": 22, "tipo": "Articular / ligamentar", "local": "Tornozelo", "desc": "Entorse no tornozelo direito", "obs": "", "noticia": false}, {"k": "for", "j": "Romarinho", "ini": "2021-09-15", "fim": "2021-09-25", "aberto": false, "semData": false, "dias": 10, "tipo": "Doença / saúde", "local": "Tornozelo", "desc": "Tendinite no tornozelo esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Matheus Jussa", "ini": "2021-10-09", "fim": "2021-10-15", "aberto": false, "semData": false, "dias": 6, "tipo": "Trauma / ósseo", "local": "Quadril", "desc": "Contratura muscular pós-trauma no lado esquerdo do quadril", "obs": "", "noticia": false}, {"k": "for", "j": "Tinga", "ini": "2021-10-19", "fim": "2021-10-29", "aberto": false, "semData": false, "dias": 10, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Adutor da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Lucas Crispim", "ini": "2021-10-23", "fim": "2021-11-18", "aberto": false, "semData": false, "dias": 26, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão no adutor da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Robson", "ini": "2021-10-23", "fim": "2021-11-05", "aberto": false, "semData": false, "dias": 13, "tipo": "Articular / ligamentar", "local": "Tornozelo", "desc": "Entorse no tornozelo direito", "obs": "", "noticia": false}, {"k": "for", "j": "Yago Pikachu", "ini": "2021-10-23", "fim": "2021-11-09", "aberto": false, "semData": false, "dias": 17, "tipo": "Articular / ligamentar", "local": "Ombro", "desc": "Luxação clavicular no ombro esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "David", "ini": "2021-11-06", "fim": "2021-11-18", "aberto": false, "semData": false, "dias": 12, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema na posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Éderson", "ini": "2021-11-19", "fim": "2021-11-23", "aberto": false, "semData": false, "dias": 4, "tipo": "Articular / ligamentar", "local": "Tornozelo", "desc": "Entorse no tornozelo direito", "obs": "", "noticia": false}, {"k": "for", "j": "Henríquez", "ini": "2022-01-22", "fim": "2022-02-11", "aberto": false, "semData": false, "dias": 20, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no adutor da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Robson", "ini": "2022-02-02", "fim": "2022-02-18", "aberto": false, "semData": false, "dias": 16, "tipo": "Trauma / ósseo", "local": "Panturrilha", "desc": "Edema na panturrilha esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Vitor Ricardo", "ini": "2022-02-09", "fim": "2022-02-21", "aberto": false, "semData": false, "dias": 12, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema na parte posterior esquerda da coxa", "obs": "", "noticia": false}, {"k": "for", "j": "Depietri", "ini": "2022-02-20", "fim": "2022-03-30", "aberto": false, "semData": false, "dias": 38, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo anterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Felipe", "ini": "2022-02-27", "fim": "2022-03-11", "aberto": false, "semData": false, "dias": 12, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo adutor da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Tinga", "ini": "2022-03-05", "fim": "2022-03-18", "aberto": false, "semData": false, "dias": 13, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo adutor da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Fernando Miguel", "ini": "2022-03-09", "fim": "2022-04-11", "aberto": false, "semData": false, "dias": 33, "tipo": "Articular / ligamentar", "local": "Joelho", "desc": "Lesão no menisco do joelho esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Lucas Crispim", "ini": "2022-03-19", "fim": "2022-04-02", "aberto": false, "semData": false, "dias": 14, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no adutor da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Tinga", "ini": "2022-03-26", "fim": "2022-04-06", "aberto": false, "semData": false, "dias": 11, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Robson", "ini": "2022-04-03", "fim": "2022-04-09", "aberto": false, "semData": false, "dias": 6, "tipo": "Trauma / ósseo", "local": "Joelho", "desc": "Trauma no joelho esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Tinga", "ini": "2022-04-16", "fim": "2022-04-23", "aberto": false, "semData": false, "dias": 7, "tipo": "Lesão muscular", "local": "Panturrilha", "desc": "Contratura muscular na panturrilha direita", "obs": "", "noticia": false}, {"k": "for", "j": "Tinga", "ini": "2022-05-18", "fim": "2022-05-24", "aberto": false, "semData": false, "dias": 6, "tipo": "Articular / ligamentar", "local": "Pé", "desc": "Entorse no pé esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Matheus Vargas", "ini": "2022-05-19", "fim": "2022-06-18", "aberto": false, "semData": false, "dias": 30, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo adutor da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Hércules", "ini": "2022-05-25", "fim": "2022-05-31", "aberto": false, "semData": false, "dias": 6, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Contratura no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Renato Kayzer", "ini": "2022-05-26", "fim": "2022-06-08", "aberto": false, "semData": false, "dias": 13, "tipo": "Lesão muscular", "local": "Panturrilha", "desc": "Contratura na panturrilha direita", "obs": "", "noticia": false}, {"k": "for", "j": "Tinga", "ini": "2022-05-28", "fim": "2022-06-09", "aberto": false, "semData": false, "dias": 12, "tipo": "Trauma / ósseo", "local": "Panturrilha", "desc": "Edema na panturrilha direita", "obs": "", "noticia": false}, {"k": "for", "j": "Depietri", "ini": "2022-06-01", "fim": "2022-06-18", "aberto": false, "semData": false, "dias": 17, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo posterior da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Tinga", "ini": "2022-06-09", "fim": "2022-08-20", "aberto": false, "semData": false, "dias": 72, "tipo": "Articular / ligamentar", "local": "Pé", "desc": "Lesão ligamentar no pé esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Romarinho", "ini": "2022-06-12", "fim": "2022-06-21", "aberto": false, "semData": false, "dias": 9, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Hércules", "ini": "2022-06-16", "fim": "2022-07-02", "aberto": false, "semData": false, "dias": 16, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo adutor da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Matheus Jussa", "ini": "2022-06-19", "fim": "2022-06-24", "aberto": false, "semData": false, "dias": 5, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Robson", "ini": "2022-06-22", "fim": "2022-07-16", "aberto": false, "semData": false, "dias": 24, "tipo": "Articular / ligamentar", "local": "Joelho", "desc": "Estiramento ligamentar no joelho esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Landázuri", "ini": "2022-06-30", "fim": "2022-07-12", "aberto": false, "semData": false, "dias": 12, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto no músculo posterior da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Sammuel", "ini": "2022-07-11", "fim": "2022-07-23", "aberto": false, "semData": false, "dias": 12, "tipo": "Articular / ligamentar", "local": "Tornozelo", "desc": "Entorse no tornozelo esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "José Welison", "ini": "2022-07-13", "fim": "2022-08-06", "aberto": false, "semData": false, "dias": 24, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Estiramento no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Fernando Miguel", "ini": "2022-07-17", "fim": "2022-07-30", "aberto": false, "semData": false, "dias": 13, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Hércules", "ini": "2022-07-17", "fim": "2022-08-06", "aberto": false, "semData": false, "dias": 20, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto no músculo adutor da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Matheus Vargas", "ini": "2022-07-20", "fim": "2022-07-30", "aberto": false, "semData": false, "dias": 10, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Lucas Crispim", "ini": "2022-08-07", "fim": "2022-09-16", "aberto": false, "semData": false, "dias": 40, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto muscular na posterior da coxa", "obs": "", "noticia": false}, {"k": "for", "j": "Depietri", "ini": "2022-08-27", "fim": "2022-09-03", "aberto": false, "semData": false, "dias": 7, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Estiramento no músculo anterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Ceballos", "ini": "2022-09-03", "fim": "2022-09-17", "aberto": false, "semData": false, "dias": 14, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto no músculo adutor da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "José Welison", "ini": "2022-09-28", "fim": "2022-09-30", "aberto": false, "semData": false, "dias": 2, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto na parte posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Depietri", "ini": "2022-09-30", "fim": "2022-10-14", "aberto": false, "semData": false, "dias": 14, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema em região posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Marcelo Benevenuto", "ini": "2022-10-05", "fim": "2022-10-23", "aberto": false, "semData": false, "dias": 18, "tipo": "Articular / ligamentar", "local": "Tornozelo", "desc": "Entorse no tornozelo esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Fabrício Baiano", "ini": "2022-10-09", "fim": "2022-10-23", "aberto": false, "semData": false, "dias": 14, "tipo": "Lesão muscular", "local": "Panturrilha", "desc": "Estiramento no músculo da panturrilha esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Lucas Sasha", "ini": "2022-10-09", "fim": "2022-10-23", "aberto": false, "semData": false, "dias": 14, "tipo": "Trauma / ósseo", "local": "Costela", "desc": "Trauma no arco costal", "obs": "", "noticia": false}, {"k": "for", "j": "Hércules", "ini": "2022-10-23", "fim": "2022-10-26", "aberto": false, "semData": false, "dias": 3, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto no músculo posterior da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Pedro Rocha", "ini": "2022-10-27", "fim": "2022-11-05", "aberto": false, "semData": false, "dias": 9, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Desconforto no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Lucas Crispim", "ini": "2022-11-02", "fim": "2022-11-11", "aberto": false, "semData": false, "dias": 9, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo anterior da coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Fabrício Baiano", "ini": "2022-11-08", "fim": "2022-12-08", "aberto": false, "semData": false, "dias": 30, "tipo": "Articular / ligamentar", "local": "Joelho", "desc": "Desconforto no joelho esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Moisés", "ini": "2023-01-14", "fim": "2023-03-19", "aberto": false, "semData": false, "dias": 64, "tipo": "Trauma / ósseo", "local": "Pé", "desc": "Fratura no quinto metatarso do pé direito", "obs": "", "noticia": false}, {"k": "for", "j": "Lucas Crispim", "ini": "2023-01-17", "fim": "2023-01-28", "aberto": false, "semData": false, "dias": 11, "tipo": "Doença / saúde", "local": "Pé", "desc": "Fascite plantar no pé direito", "obs": "", "noticia": false}, {"k": "for", "j": "Brítez", "ini": "2023-01-26", "fim": "2023-02-03", "aberto": false, "semData": false, "dias": 8, "tipo": "Doença / saúde", "local": "Cabeça", "desc": "Concussão", "obs": "", "noticia": false}, {"k": "for", "j": "João Ricardo", "ini": "2023-01-28", "fim": "2023-02-03", "aberto": false, "semData": false, "dias": 6, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão no músculo adutor da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Lucas Crispim", "ini": "2023-02-07", "fim": "2023-02-25", "aberto": false, "semData": false, "dias": 18, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Estiramento no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "for", "j": "Pedro Rocha", "ini": "2023-02-14", "fim": "2023-10-20", "aberto": false, "semData": false, "dias": 248, "tipo": "Articular / ligamentar", "local": "Joelho", "desc": "Ruptura completa do ligamento cruzado anterior do joelho esquerdo", "obs": "", "noticia": false}, {"k": "for", "j": "Lucas Esteves", "ini": "2023-02-25", "fim": "2023-04-14", "aberto": false, "semData": false, "dias": 48, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Estiramento na coxa esquerda", "obs": "", "noticia": false}, {"k": "for", "j": "Dudu", "ini": "2023-03-05", "fim": "2023-03-24", "aberto": false, "semData": false, "dias": 19, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo posterior da coxa esquerda", "obs": "", "noticia": false}, {"k": "cam", "j": "Cissé", "ini": "2026-03-08", "fim": "2026-03-27", "aberto": false, "semData": false, "dias": 19, "tipo": "Trauma / ósseo", "local": "Pé", "desc": "Corte profundo no dorso do pé direito", "obs": "", "noticia": false}, {"k": "cam", "j": "Maycon", "ini": "2026-03-08", "fim": "2026-04-07", "aberto": false, "semData": false, "dias": 30, "tipo": "Lesão muscular", "local": "Panturrilha", "desc": "Lesão muscular na panturrilha esquerda", "obs": "", "noticia": false}, {"k": "cam", "j": "Vitor Hugo", "ini": "2026-03-11", "fim": "2026-04-01", "aberto": false, "semData": false, "dias": 21, "tipo": "Lesão muscular", "local": "Panturrilha", "desc": "Lesão muscular na panturrilha esquerda", "obs": "", "noticia": false}, {"k": "cam", "j": "Índio", "ini": "2026-03-12", "fim": "2026-08-21", "aberto": false, "semData": false, "dias": 162, "tipo": "Articular / ligamentar", "local": "Joelho", "desc": "Lesão nos ligamentos cruzado posterior e colateral medial", "obs": "", "noticia": false}, {"k": "cam", "j": "Patrick", "ini": "2026-04-01", "fim": "2026-08-13", "aberto": false, "semData": false, "dias": 134, "tipo": "Trauma / ósseo", "local": "Joelho", "desc": "Trauma no joelho direito", "obs": "", "noticia": false}, {"k": "cam", "j": "Cissé", "ini": "2026-04-26", "fim": "2026-05-09", "aberto": false, "semData": false, "dias": 13, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão muscular na coxa esquerda", "obs": "", "noticia": false}, {"k": "cam", "j": "Cuello", "ini": "2026-05-02", "fim": "2026-05-09", "aberto": false, "semData": false, "dias": 7, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão na panturrilha esquerda", "obs": "", "noticia": false}, {"k": "cam", "j": "Victor Hugo", "ini": "2026-05-02", "fim": "2026-05-20", "aberto": false, "semData": false, "dias": 18, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema na coxa esquerda", "obs": "", "noticia": false}, {"k": "cam", "j": "Vitor Hugo", "ini": "2026-05-02", "fim": "2026-05-04", "aberto": false, "semData": false, "dias": 2, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão no múscula adutor da coxa direita", "obs": "", "noticia": false}, {"k": "cam", "j": "Gustavo Scarpa", "ini": "2026-05-10", "fim": "2026-07-17", "aberto": false, "semData": false, "dias": 68, "tipo": "Articular / ligamentar", "local": "Joelho", "desc": "Entorse no joelho direito (artroscopia para a retirada de um fragmento no joelho direito)", "obs": "", "noticia": false}, {"k": "cam", "j": "Ruan", "ini": "2026-05-10", "fim": "2026-05-15", "aberto": false, "semData": false, "dias": 5, "tipo": "Articular / ligamentar", "local": "Pé", "desc": "Entorse no pé esquerdo", "obs": "", "noticia": false}, {"k": "cam", "j": "Léo Duarte", "ini": "2026-07-15", "fim": "2026-09-10", "aberto": false, "semData": false, "dias": 57, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão muscular na coxa direita", "obs": "", "noticia": false}, {"k": "cam", "j": "Cuello", "ini": "2026-07-25", "fim": "2026-07-31", "aberto": false, "semData": false, "dias": 6, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema na coxa esquerda", "obs": "", "noticia": false}, {"k": "cam", "j": "Vitão", "ini": "2026-07-25", "fim": "2026-08-13", "aberto": false, "semData": false, "dias": 19, "tipo": "Lesão muscular", "local": "Panturrilha", "desc": "Lesão muscular na panturrilha esquerda", "obs": "", "noticia": false}, {"k": "cam", "j": "Gustavo Scarpa", "ini": "2026-08-07", "fim": "2026-08-24", "aberto": false, "semData": false, "dias": 17, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no adutor da coxa direita", "obs": "", "noticia": false}, {"k": "cam", "j": "Lyanco", "ini": "2026-08-13", "fim": "2026-09-09", "aberto": false, "semData": false, "dias": 27, "tipo": "Articular / ligamentar", "local": "Pé", "desc": "Ruptura da fáscia plantar do pé esquerdo", "obs": "", "noticia": false}, {"k": "cam", "j": "Igor Gomes", "ini": "2026-08-16", "fim": "2026-09-09", "aberto": false, "semData": false, "dias": 24, "tipo": "Articular / ligamentar", "local": "Pé", "desc": "Estiramento do ligamento no pé direito", "obs": "", "noticia": false}, {"k": "cam", "j": "Victor Hugo", "ini": "2026-08-21", "fim": "2026-09-01", "aberto": false, "semData": false, "dias": 11, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no adutor da coxa direita", "obs": "", "noticia": false}, {"k": "cam", "j": "Ruan", "ini": "2026-08-25", "fim": "2026-09-01", "aberto": false, "semData": false, "dias": 7, "tipo": "Doença / saúde", "local": "Cabeça", "desc": "Concussão", "obs": "", "noticia": false}, {"k": "cam", "j": "Maycon", "ini": "2026-09-01", "fim": "2026-09-09", "aberto": false, "semData": false, "dias": 8, "tipo": "Outros / não especificado", "local": "Não informado", "desc": "Sentiu dores no aquecimento", "obs": "", "noticia": false}, {"k": "cam", "j": "Ruan", "ini": "2026-09-01", "fim": "2026-11-03", "aberto": false, "semData": false, "dias": 63, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão no músculo posterior da coxa esquerda", "obs": "", "noticia": true}, {"k": "cam", "j": "Thiago Borbas", "ini": "2026-09-01", "fim": "2026-09-16", "aberto": false, "semData": false, "dias": 15, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão no músculo posterior da coxa direita", "obs": "", "noticia": false}, {"k": "cam", "j": "Everson", "ini": "2026-09-04", "fim": "2026-10-23", "aberto": false, "semData": false, "dias": 49, "tipo": "Trauma / ósseo", "local": "Pé", "desc": "Fratura no pé esquerdo", "obs": "", "noticia": true}, {"k": "cam", "j": "Tomás Pérez", "ini": "2026-09-04", "fim": "2026-09-19", "aberto": false, "semData": false, "dias": 15, "tipo": "Doença / saúde", "local": "Quadril", "desc": "Pubalgia", "obs": "", "noticia": false}, {"k": "cam", "j": "Victor Hugo", "ini": "2026-09-12", "fim": "2026-10-02", "aberto": false, "semData": false, "dias": 20, "tipo": "Outros / não especificado", "local": "Quadril", "desc": "Lesão no púbis", "obs": "", "noticia": true}, {"k": "cam", "j": "Reinier", "ini": "2026-09-16", "fim": "2026-09-28", "aberto": false, "semData": false, "dias": 12, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Dores na coxa", "obs": "", "noticia": true}, {"k": "cam", "j": "Gustavo Scarpa", "ini": "2026-09-17", "fim": "2026-10-24", "aberto": false, "semData": false, "dias": 37, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão muscular na região posterior da coxa direita (sentiu em treino)", "obs": "", "noticia": true}, {"k": "cam", "j": "Cassierra", "ini": "2026-10-03", "fim": "2026-11-06", "aberto": false, "semData": false, "dias": 34, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão no músculo posterior da coxa esquerda", "obs": "", "noticia": true}, {"k": "cam", "j": "Vitor Hugo", "ini": "2026-10-03", "fim": null, "aberto": false, "semData": true, "dias": null, "tipo": "Doença / saúde", "local": "Cabeça", "desc": "Choque de cabeça; saiu pelo protocolo de concussão", "obs": "Volta sem data nas notícias", "noticia": true}, {"k": "cam", "j": "Fred", "ini": "2026-10-08", "fim": "2026-11-06", "aberto": false, "semData": false, "dias": 29, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão no músculo posterior da coxa esquerda", "obs": "Voltou a jogar em 07/11; o técnico disse que a lesão ainda estava aberta", "noticia": true}, {"k": "cam", "j": "Thiago Borbas", "ini": "2026-10-17", "fim": null, "aberto": true, "semData": false, "dias": 24, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão muscular na coxa direita", "obs": "", "noticia": true}, {"k": "cam", "j": "Cuello", "ini": "2026-10-21", "fim": "2026-10-31", "aberto": false, "semData": false, "dias": 10, "tipo": "Trauma / ósseo", "local": "Costela", "desc": "Trauma na costela", "obs": "Volta aproximada: liberado antes do jogo de 01/11", "noticia": true}, {"k": "cam", "j": "Reinier", "ini": "2026-10-29", "fim": null, "aberto": true, "semData": false, "dias": 12, "tipo": "Lesão muscular", "local": "Coxa", "desc": "Lesão no músculo posterior da coxa esquerda, de grau elevado", "obs": "Fora do resto da temporada", "noticia": true}, {"k": "cam", "j": "Vitão", "ini": "2026-10-29", "fim": "2026-11-04", "aberto": false, "semData": false, "dias": 6, "tipo": "Trauma / ósseo", "local": "Costas", "desc": "Contusão nas costas após choque com o goleiro", "obs": "Volta aproximada: voltou a jogar em 04/11", "noticia": true}, {"k": "cam", "j": "Victor Hugo", "ini": "2026-11-01", "fim": null, "aberto": true, "semData": false, "dias": 9, "tipo": "Trauma / ósseo", "local": "Coxa", "desc": "Edema no músculo adutor da coxa direita", "obs": "", "noticia": true}, {"k": "cam", "j": "Alan Franco", "ini": "2026-11-10", "fim": null, "aberto": true, "semData": false, "dias": 0, "tipo": "Lesão muscular", "local": "Não informado", "desc": "Lesão muscular (local ainda não informado)", "obs": "Lesão na seleção do Equador; data da notícia", "noticia": true}, {"k": "cam", "j": "Alan Minda", "ini": "2026-11-10", "fim": null, "aberto": true, "semData": false, "dias": 0, "tipo": "Lesão muscular", "local": "Não informado", "desc": "Lesão muscular (local ainda não informado)", "obs": "Lesão na seleção do Equador; data da notícia", "noticia": true}];
+const PART = [{"k": "for", "d": "2021-03-03", "m": 990.0, "e": false}, {"k": "for", "d": "2021-03-06", "m": 990.0, "e": false}, {"k": "for", "d": "2021-03-10", "m": 990.0, "e": false}, {"k": "for", "d": "2021-03-13", "m": 990.0, "e": false}, {"k": "for", "d": "2021-03-17", "m": 980.0, "e": false}, {"k": "for", "d": "2021-03-20", "m": 990.0, "e": false}, {"k": "for", "d": "2021-03-23", "m": 990.0, "e": false}, {"k": "for", "d": "2021-03-27", "m": 990.0, "e": false}, {"k": "for", "d": "2021-04-03", "m": 990.0, "e": false}, {"k": "for", "d": "2021-04-06", "m": 990.0, "e": false}, {"k": "for", "d": "2021-04-10", "m": 945.0, "e": false}, {"k": "for", "d": "2021-04-17", "m": 990.0, "e": false}, {"k": "for", "d": "2021-04-24", "m": 990.0, "e": false}, {"k": "for", "d": "2021-05-01", "m": 990.0, "e": false}, {"k": "for", "d": "2021-05-05", "m": 990.0, "e": false}, {"k": "for", "d": "2021-05-08", "m": 990.0, "e": false}, {"k": "for", "d": "2021-05-12", "m": 990.0, "e": false}, {"k": "for", "d": "2021-05-15", "m": 990.0, "e": false}, {"k": "for", "d": "2021-05-17", "m": 990.0, "e": false}, {"k": "for", "d": "2021-05-19", "m": 990.0, "e": false}, {"k": "for", "d": "2021-05-23", "m": 991.0, "e": false}, {"k": "for", "d": "2021-05-30", "m": 990.0, "e": false}, {"k": "for", "d": "2021-06-02", "m": 990.0, "e": false}, {"k": "for", "d": "2021-06-06", "m": 990.0, "e": false}, {"k": "for", "d": "2021-06-10", "m": 1615.0, "e": false}, {"k": "for", "d": "2021-06-13", "m": 991.0, "e": false}, {"k": "for", "d": "2021-06-17", "m": 1589.0, "e": false}, {"k": "for", "d": "2021-06-20", "m": 990.0, "e": false}, {"k": "for", "d": "2021-06-23", "m": 991.0, "e": false}, {"k": "for", "d": "2021-06-27", "m": 990.0, "e": false}, {"k": "for", "d": "2021-06-30", "m": 954.0, "e": false}, {"k": "for", "d": "2021-07-03", "m": 990.0, "e": false}, {"k": "for", "d": "2021-07-07", "m": 990.0, "e": false}, {"k": "for", "d": "2021-07-11", "m": 990.0, "e": false}, {"k": "for", "d": "2021-07-17", "m": 990.0, "e": false}, {"k": "for", "d": "2021-07-25", "m": 990.0, "e": false}, {"k": "for", "d": "2021-07-29", "m": 1599.0, "e": false}, {"k": "for", "d": "2021-08-01", "m": 990.0, "e": false}, {"k": "for", "d": "2021-08-04", "m": 990.0, "e": false}, {"k": "for", "d": "2021-08-07", "m": 970.0, "e": false}, {"k": "for", "d": "2021-08-15", "m": 990.0, "e": false}, {"k": "for", "d": "2021-08-21", "m": 990.0, "e": false}, {"k": "for", "d": "2021-08-25", "m": 990.0, "e": false}, {"k": "for", "d": "2021-08-30", "m": 990.0, "e": false}, {"k": "for", "d": "2021-09-04", "m": 990.0, "e": false}, {"k": "for", "d": "2021-09-12", "m": 990.0, "e": false}, {"k": "for", "d": "2021-09-15", "m": 990.0, "e": false}, {"k": "for", "d": "2021-09-19", "m": 974.0, "e": false}, {"k": "for", "d": "2021-09-26", "m": 990.0, "e": false}, {"k": "for", "d": "2021-10-02", "m": 990.0, "e": false}, {"k": "for", "d": "2021-10-06", "m": 991.0, "e": false}, {"k": "for", "d": "2021-10-09", "m": 968.0, "e": false}, {"k": "for", "d": "2021-10-13", "m": 990.0, "e": false}, {"k": "for", "d": "2021-10-16", "m": 990.0, "e": false}, {"k": "for", "d": "2021-10-20", "m": 990.0, "e": false}, {"k": "for", "d": "2021-10-23", "m": 990.0, "e": false}, {"k": "for", "d": "2021-10-27", "m": 990.0, "e": false}, {"k": "for", "d": "2021-10-30", "m": 990.0, "e": false}, {"k": "for", "d": "2021-11-06", "m": 992.0, "e": false}, {"k": "for", "d": "2021-11-10", "m": 990.0, "e": false}, {"k": "for", "d": "2021-11-13", "m": 990.0, "e": false}, {"k": "for", "d": "2021-11-17", "m": 990.0, "e": false}, {"k": "for", "d": "2021-11-20", "m": 990.0, "e": false}, {"k": "for", "d": "2021-11-25", "m": 990.0, "e": false}, {"k": "for", "d": "2021-12-03", "m": 1080.0, "e": false}, {"k": "for", "d": "2021-12-06", "m": 990.0, "e": false}, {"k": "for", "d": "2021-12-09", "m": 991.0, "e": false}, {"k": "for", "d": "2022-01-30", "m": 990.0, "e": false}, {"k": "for", "d": "2022-02-02", "m": 990.0, "e": false}, {"k": "for", "d": "2022-02-05", "m": 990.0, "e": false}, {"k": "for", "d": "2022-02-12", "m": 990.0, "e": false}, {"k": "for", "d": "2022-02-15", "m": 990.0, "e": false}, {"k": "for", "d": "2022-02-19", "m": 990.0, "e": false}, {"k": "for", "d": "2022-02-24", "m": 990.0, "e": false}, {"k": "for", "d": "2022-03-02", "m": 990.0, "e": false}, {"k": "for", "d": "2022-03-05", "m": 990.0, "e": false}, {"k": "for", "d": "2022-03-08", "m": 990.0, "e": false}, {"k": "for", "d": "2022-03-12", "m": 990.0, "e": false}, {"k": "for", "d": "2022-03-19", "m": 982.0, "e": false}, {"k": "for", "d": "2022-03-22", "m": 990.0, "e": false}, {"k": "for", "d": "2022-03-26", "m": 990.0, "e": false}, {"k": "for", "d": "2022-03-31", "m": 991.0, "e": false}, {"k": "for", "d": "2022-04-03", "m": 991.0, "e": false}, {"k": "for", "d": "2022-04-07", "m": 990.0, "e": false}, {"k": "for", "d": "2022-04-10", "m": 990.0, "e": false}, {"k": "for", "d": "2022-04-13", "m": 990.0, "e": false}, {"k": "for", "d": "2022-04-17", "m": 991.0, "e": false}, {"k": "for", "d": "2022-04-20", "m": 990.0, "e": false}, {"k": "for", "d": "2022-04-22", "m": 990.0, "e": false}, {"k": "for", "d": "2022-04-24", "m": 990.0, "e": false}, {"k": "for", "d": "2022-04-27", "m": 990.0, "e": false}, {"k": "for", "d": "2022-05-01", "m": 990.0, "e": false}, {"k": "for", "d": "2022-05-05", "m": 990.0, "e": false}, {"k": "for", "d": "2022-05-08", "m": 990.0, "e": false}, {"k": "for", "d": "2022-05-12", "m": 990.0, "e": false}, {"k": "for", "d": "2022-05-15", "m": 941.0, "e": false}, {"k": "for", "d": "2022-05-18", "m": 1080.0, "e": false}, {"k": "for", "d": "2022-05-22", "m": 990.0, "e": false}, {"k": "for", "d": "2022-05-25", "m": 990.0, "e": false}, {"k": "for", "d": "2022-05-28", "m": 990.0, "e": false}, {"k": "for", "d": "2022-06-01", "m": 920.0, "e": false}, {"k": "for", "d": "2022-06-05", "m": 991.0, "e": false}, {"k": "for", "d": "2022-06-09", "m": 990.0, "e": false}, {"k": "for", "d": "2022-06-12", "m": 990.0, "e": false}, {"k": "for", "d": "2022-06-16", "m": 990.0, "e": false}, {"k": "for", "d": "2022-06-19", "m": 991.0, "e": false}, {"k": "for", "d": "2022-06-22", "m": 992.0, "e": false}, {"k": "for", "d": "2022-06-25", "m": 991.0, "e": false}, {"k": "for", "d": "2022-06-30", "m": 1004.0, "e": false}, {"k": "for", "d": "2022-07-03", "m": 990.0, "e": false}, {"k": "for", "d": "2022-07-07", "m": 1012.0, "e": false}, {"k": "for", "d": "2022-07-10", "m": 990.0, "e": false}, {"k": "for", "d": "2022-07-13", "m": 991.0, "e": false}, {"k": "for", "d": "2022-07-17", "m": 990.0, "e": false}, {"k": "for", "d": "2022-07-20", "m": 990.0, "e": false}, {"k": "for", "d": "2022-07-24", "m": 990.0, "e": false}, {"k": "for", "d": "2022-07-28", "m": 1100.0, "e": false}, {"k": "for", "d": "2022-07-31", "m": 992.0, "e": false}, {"k": "for", "d": "2022-08-07", "m": 1022.0, "e": false}, {"k": "for", "d": "2022-08-14", "m": 991.0, "e": false}, {"k": "for", "d": "2022-08-17", "m": 1035.0, "e": false}, {"k": "for", "d": "2022-08-21", "m": 992.0, "e": false}, {"k": "for", "d": "2022-08-28", "m": 990.0, "e": false}, {"k": "for", "d": "2022-09-04", "m": 990.0, "e": false}, {"k": "for", "d": "2022-09-10", "m": 990.0, "e": false}, {"k": "for", "d": "2022-09-18", "m": 992.0, "e": false}, {"k": "for", "d": "2022-09-28", "m": 1080.0, "e": false}, {"k": "for", "d": "2022-10-01", "m": 990.0, "e": false}, {"k": "for", "d": "2022-10-05", "m": 990.0, "e": false}, {"k": "for", "d": "2022-10-09", "m": 990.0, "e": false}, {"k": "for", "d": "2022-10-15", "m": 1064.0, "e": false}, {"k": "for", "d": "2022-10-24", "m": 990.0, "e": false}, {"k": "for", "d": "2022-10-27", "m": 990.0, "e": false}, {"k": "for", "d": "2022-11-02", "m": 990.0, "e": false}, {"k": "for", "d": "2022-11-06", "m": 990.0, "e": false}, {"k": "for", "d": "2022-11-09", "m": 990.0, "e": false}, {"k": "for", "d": "2022-11-13", "m": 991.0, "e": false}, {"k": "for", "d": "2023-01-14", "m": 990.0, "e": false}, {"k": "for", "d": "2023-01-18", "m": 990.0, "e": false}, {"k": "for", "d": "2023-01-21", "m": 990.0, "e": false}, {"k": "for", "d": "2023-01-26", "m": 990.0, "e": false}, {"k": "for", "d": "2023-01-29", "m": 990.0, "e": false}, {"k": "for", "d": "2023-02-01", "m": 990.0, "e": false}, {"k": "for", "d": "2023-02-04", "m": 990.0, "e": false}, {"k": "for", "d": "2023-02-07", "m": 990.0, "e": false}, {"k": "for", "d": "2023-02-14", "m": 990.0, "e": false}, {"k": "for", "d": "2023-02-17", "m": 990.0, "e": false}, {"k": "for", "d": "2023-02-23", "m": 990.0, "e": false}, {"k": "for", "d": "2023-02-26", "m": 941.0, "e": false}, {"k": "for", "d": "2023-03-02", "m": 1060.0, "e": false}, {"k": "for", "d": "2023-03-05", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-01-11", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-01-14", "m": 983.0, "e": false}, {"k": "cam", "d": "2026-01-18", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-01-21", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-01-25", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-01-28", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-01-31", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-02-04", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-02-07", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-02-11", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-02-14", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-02-22", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-02-25", "m": 917.0, "e": false}, {"k": "cam", "d": "2026-03-01", "m": 1320.0, "e": false}, {"k": "cam", "d": "2026-03-08", "m": 1199.0, "e": false}, {"k": "cam", "d": "2026-03-11", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-03-14", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-03-18", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-03-21", "m": 1446.0, "e": false}, {"k": "cam", "d": "2026-04-02", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-04-05", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-04-08", "m": 1436.0, "e": false}, {"k": "cam", "d": "2026-04-11", "m": 1398.0, "e": false}, {"k": "cam", "d": "2026-04-16", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-04-19", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-04-23", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-04-26", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-04-29", "m": 1118.0, "e": false}, {"k": "cam", "d": "2026-05-02", "m": 1544.0, "e": false}, {"k": "cam", "d": "2026-05-05", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-05-10", "m": 1350.0, "e": false}, {"k": "cam", "d": "2026-05-13", "m": 1077.0, "e": false}, {"k": "cam", "d": "2026-05-16", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-05-21", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-05-24", "m": 991.0, "e": false}, {"k": "cam", "d": "2026-05-27", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-05-31", "m": 1128.0, "e": false}, {"k": "cam", "d": "2026-07-21", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-07-26", "m": 991.0, "e": false}, {"k": "cam", "d": "2026-08-01", "m": 1440.0, "e": false}, {"k": "cam", "d": "2026-08-04", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-08-08", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-08-12", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-08-16", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-08-19", "m": 991.0, "e": false}, {"k": "cam", "d": "2026-08-22", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-08-25", "m": 1149.0, "e": false}, {"k": "cam", "d": "2026-08-29", "m": 992.0, "e": false}, {"k": "cam", "d": "2026-09-01", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-09-05", "m": 1035.0, "e": false}, {"k": "cam", "d": "2026-09-09", "m": 1051.0, "e": false}, {"k": "cam", "d": "2026-09-12", "m": 990.0, "e": false}, {"k": "cam", "d": "2026-09-16", "m": 1163.0, "e": false}, {"k": "cam", "d": "2026-09-19", "m": 1613.0, "e": false}, {"k": "cam", "d": "2026-10-03", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-10-08", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-10-11", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-10-14", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-10-17", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-10-21", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-10-26", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-10-29", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-11-01", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-11-04", "m": 1074.0, "e": true}, {"k": "cam", "d": "2026-11-07", "m": 1074.0, "e": true}];
+const FONTES = [
+["O Tempo: lista do DM (09/11/2026)","https://otempo.com.br/sports/atletico/2026/11/9/atletico-corre-contra-o-tempo-para-tentar-liberar-jogadores-que-estao-no-dm-veja-lista"],
+["O Tempo: Reinier e Borbas liberados (28/09/2026)","https://www.otempo.com.br/sports/atletico/2026/9/28/dupla-de-atacantes-do-atletico-e-liberada-pelo-dm-e-reforca-elenco-na-reta-decisiva"],
+["No Ataque: Victor Hugo liberado (02/10/2026)","https://noataque.com.br/futebol/brasileirao-serie-a/time/atletico-mg/noticia/2026/10/02/boa-noticia-no-atletico-victor-hugo-se-recupera-de-lesao-e-esta-a-disposicao-contra-o-bragantino/"],
+["No Ataque: Everson liberado (23/10/2026)","https://noataque.com.br/futebol/time/atletico-mg/noticia/2026/10/23/atletico-everson-e-liberado-pelo-dm-em-meio-a-decisoes-e-grande-fase-de-gabriel-delfim/"],
+["O Tempo: Ruan liberado e lesão de Victor Hugo (03/11/2026)","https://www.otempo.com.br/sports/atletico/2026/11/3/atletico-zagueiro-e-liberado-para-voltar-a-treinar-meia-tem-lesao-confirmada"],
+["O Tempo: Scarpa volta aos treinos (24/10/2026)","https://www.otempo.com.br/sports/atletico/2026/10/24/scarpa-avanca-em-recuperacao-e-fica-proximo-de-reforcar-o-atletico-na-reta-final-da-temporada"],
+["Metrópoles: Fred e Cassierra recuperados","https://www.metropoles.com/esportes/fred-e-cassierra-se-recuperam-de-lesao-e-estao-a-disposicao-do-atletico-mg"],
+["Rede 98: nova lesão de Thiago Borbas","https://rede98.com.br/esportes/atletico/atletico-confirma-lesao-thiago-borbas/"],
+["Rede 98: Cuello com trauma na costela","https://rede98.com.br/esportes/atletico/atletico-desfalque-cuello-flamengo-scarpa-retorno/"],
+["Metrópoles: estado de Vitão após o choque","https://www.metropoles.com/esportes/atletico-mg-atualizada-estado-de-vitao-apos-choque-de-cabeca-com-delfim"],
+["O Tempo: choque de cabeça de Vitor Hugo (03/10/2026)","https://www.otempo.com.br/sports/atletico/2026/10/3/vitor-hugo-e-substituido-apos-choque-de-cabeca-e-leo-duarte-estreia-pelo-atletico"],
+["O Tempo: Reinier após a lesão (31/10/2026)","https://www.otempo.com.br/sports/atletico/2026/10/31/apos-ter-lesao-confirmada-pelo-atletico-reinier-faz-desabafo-nas-redes-sociais-sigo-firme"],
+["Yahoo Sports: Equador corta Alan Franco e Alan Minda","https://sports.yahoo.com/articles/ecuador-rule-atl-tico-mg-023600246.html"],
+["Goal: partidas e resultados do Atlético-MG em 2026","https://www.goal.com/br/equipe/atletico-mg/partidas-resultados/1f6qzkdjh8fih5ii1eygmkolq"],
+["Resultado Fácil: resultados do Atlético-MG","https://www.resultadofacil.com.br/esportes/futebol/times/atletico-mg"]
+];
+const TIMES = {
+  for: {nome: 'Fortaleza', cor: '#4b8ef7', ini: '2021-05-12', fim: '2023-03-06'},
+  cam: {nome: 'Atlético-MG', cor: '#f2f2ef', ini: '2026-02-27', fim: '2026-11-10'}
+};
+const COLS = [
+  {k: 'for', tag: 'Com Vaccarini', nome: 'Fortaleza', per: '12/05/2021 a 06/03/2023'},
+  {k: 'cam', tag: 'Com Vaccarini', nome: 'Atlético-MG', per: '27/02 a 10/11/2026'},
+  {k: 'ctx', tag: 'Sem Vaccarini', nome: 'Fortaleza depois', per: '07/03/2023 a 2025'},
+  {k: 'ctx', tag: 'Sem Vaccarini', nome: 'Atlético-MG antes', per: '2021 a 26/02/2026'}
+];
+const PLACAR = [
+  {sep: 'Quantas lesões'},
+  ['Lesões', '64', '37', '127', '184'],
+  ['Jogadores que se machucaram', '34', '21', '50', '65'],
+  ['Jogos oficiais no período', '135', '52', '202', '366'],
+  ['Lesões a cada 10 jogos', '4,7', '7,1', '6,3', '5,0', true],
+  ['Lesões por mês', '2,9', '4,4', '3,7', '3,0'],
+  {sep: 'Quanto tempo ficaram fora'},
+  ['Dias de desfalque, somando todos os jogadores', '1.029', '990', '2.892', '5.484'],
+  ['Dias fora por lesão, em média', '20,7', '27,5', '23,5', '30,6', true],
+  ['Lesões longas (mais de 4 semanas fora)', '11', '10', '29', '56'],
+  ['Lesões que precisaram de cirurgia', '4', '2', '6', '20'],
+  {sep: 'Que tipo de lesão'},
+  ['Lesões musculares', '67%', '59%', '59%', '58%'],
+  ['Jogadores que se machucaram mais de uma vez', '14', '10', '27', '40'],
+  {sep: 'Comparado com a Série A da mesma época'},
+  ['Lesões a cada 10 jogos do clube no período comparado', '4,7', '6,3 *', '6,3', '5,0', true],
+  ['Lesões a cada 10 jogos de um clube típico da Série A', '5,4', '7,0 *', '6,1', '6,0']
+];
+const DIA = 86400000;
+const MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+const toDate = (s) => new Date(s + 'T00:00:00Z');
+const dataBR = (s) => (s ? s.slice(8, 10) + '/' + s.slice(5, 7) + '/' + s.slice(0, 4) : '');
+const L = LES.map((d) => Object.assign({}, d, {
+  grupo: d.tipo === 'Trauma / ósseo' && /edema/i.test(d.desc) && ['Coxa', 'Panturrilha', 'Glúteo'].includes(d.local) ? 'Edema muscular' : d.tipo
+}));
+
+const NS = 'http://www.w3.org/2000/svg';
+function S(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const a in attrs) if (attrs[a] !== null && attrs[a] !== undefined) e.setAttribute(a, attrs[a]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function T(parent, x, y, str, attrs) { const t = S('text', Object.assign({x, y}, attrs || {}), parent); t.textContent = str; return t; }
+function H(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+function textW(svg, str, cls) { const t = T(svg, 0, -200, str, {class: cls || null}); const w = t.getComputedTextLength(); t.remove(); return w; }
+
+/* tooltip */
+const tip = document.getElementById('tip');
+let tipTimer = null;
+function showTip(ev, linhas) { tip.replaceChildren(...linhas.map(([t, c]) => H('div', c || 't2', t))); tip.hidden = false; moveTip(ev); }
+function moveTip(ev) {
+  const pad = 14, w = tip.offsetWidth, h = tip.offsetHeight;
+  let x = ev.clientX + pad, y = ev.clientY + pad;
+  if (x + w > innerWidth - 8) x = ev.clientX - w - pad;
+  if (x < 8) x = 8;
+  if (y + h > innerHeight - 8) y = ev.clientY - h - pad;
+  tip.style.left = x + 'px'; tip.style.top = Math.max(8, y) + 'px';
+}
+function bindTip(el, fn) {
+  el.addEventListener('pointerenter', (ev) => { if (ev.pointerType !== 'touch') showTip(ev, fn()); });
+  el.addEventListener('pointermove', (ev) => { if (ev.pointerType !== 'touch' && !tip.hidden) moveTip(ev); });
+  el.addEventListener('pointerleave', (ev) => { if (ev.pointerType !== 'touch') tip.hidden = true; });
+  el.addEventListener('pointerdown', (ev) => { if (ev.pointerType !== 'touch') return; showTip(ev, fn()); clearTimeout(tipTimer); tipTimer = setTimeout(() => { tip.hidden = true; }, 3000); });
+}
+
+/* KPIs */
+function desenhaKpis() {
+  const tiles = [
+    ['Lesões por mês', '2,9', '4,4', 'em média, durante o período'],
+    ['Lesões a cada 10 jogos', '4,7', '7,1', 'contando só jogos oficiais'],
+    ['Dias fora por lesão', '20,7', '27,5', 'em média'],
+    ['Lesões longas', '11', '10', 'mais de 4 semanas fora']
+  ];
+  document.getElementById('kpis').replaceChildren(...tiles.map(([lab, a, b, foot]) => {
+    const d = H('div', 'kpi'), v = H('div', 'k-vals');
+    const va = H('span', 'k-v c-for', a); va.append(H('small', null, 'FOR'));
+    const vb = H('span', 'k-v c-cam', b); vb.append(H('small', null, 'CAM'));
+    v.append(va, vb);
+    d.append(H('div', 'k-lab', lab), v, H('div', 'k-foot', foot));
+    return d;
+  }));
+}
+
+/* placar */
+function desenhaPlacar() {
+  const t = document.getElementById('board');
+  const thead = H('thead'), trh = H('tr');
+  trh.append(H('th'));
+  COLS.forEach((c) => {
+    const th = H('th', c.k === 'ctx' ? 'ctx' : null);
+    th.append(H('span', 'tag', c.tag));
+    const nm = H('span', 'tn' + (c.k === 'for' ? ' c-for' : ''), c.nome);
+    th.append(nm, H('span', 'tp', c.per));
+    trh.append(th);
+  });
+  thead.append(trh);
+  const tb = H('tbody');
+  PLACAR.forEach((r) => {
+    const tr = H('tr');
+    if (r.sep) { tr.className = 'sep'; const td = H('td', null, r.sep); td.colSpan = 5; tr.append(td); tb.append(tr); return; }
+    tr.append(H('td', 'lab', r[0]));
+    for (let i = 1; i <= 4; i++) {
+      const ctx = i > 2;
+      const cls = [ctx ? 'ctx' : '', !ctx && r[5] ? 'big' : '', i === 1 && r[5] ? 'c-for' : ''].filter(Boolean).join(' ');
+      tr.append(H('td', cls || null, r[i]));
+    }
+    tb.append(tr);
+  });
+  t.replaceChildren(thead, tb);
+  const cb = document.getElementById('ver-ctx');
+  cb.onchange = () => t.classList.toggle('hide-ctx', !cb.checked);
+}
+
+/* onde dói */
+let corpoMedida = 'n';
+const PONTOS = {
+  'Cabeça': [110, 30], 'Ombro': [72, 90], 'Cotovelo': [55, 172], 'Costela': [92, 138], 'Costas': [129, 166],
+  'Quadril': [91, 214], 'Glúteo': [129, 220], 'Coxa': [92, 268], 'Joelho': [127, 324], 'Panturrilha': [93, 362],
+  'Tornozelo': [126, 412], 'Pé': [94, 436]
+};
+/* meia silhueta (lado esquerdo da tela), espelhada para o outro lado */
+const MEIA = [
+  [110, 58], [101, 60], [99, 68], [86, 74], [72, 79], [62, 88], [58, 104], [56, 130], [52, 160], [50, 176],
+  [46, 205], [42, 236], [38, 252], [40, 262], [47, 262], [52, 252], [56, 236], [61, 206], [66, 178], [70, 150],
+  [74, 124], [77, 140], [80, 168], [80, 192], [76, 214], [76, 246], [79, 284], [84, 312], [83, 330], [80, 360],
+  [84, 392], [90, 412], [88, 426], [80, 434], [84, 442], [104, 442], [106, 426], [104, 410], [106, 372], [107, 336],
+  [106, 312], [107, 276], [109, 242], [110, 236]
+];
+function suave(pts) {
+  const n = pts.length;
+  let d = 'M' + pts[0][0] + ',' + pts[0][1];
+  for (let i = 0; i < n; i++) {
+    const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+    const t = 0.18;
+    d += ' C' + (p1[0] + (p2[0] - p0[0]) * t).toFixed(1) + ',' + (p1[1] + (p2[1] - p0[1]) * t).toFixed(1) + ' ' +
+      (p2[0] - (p3[0] - p1[0]) * t).toFixed(1) + ',' + (p2[1] - (p3[1] - p1[1]) * t).toFixed(1) + ' ' + p2[0] + ',' + p2[1];
+  }
+  return d + ' Z';
+}
+const CONTORNO = suave(MEIA.slice(0, -1).concat(MEIA.slice(1).reverse().map(([x, y]) => [220 - x, y])));
+function boneco(svg, id) {
+  const defs = S('defs', {}, svg);
+  const lg = S('linearGradient', {id: 'pele-' + id, x1: 0, y1: 0, x2: 1, y2: 0}, defs);
+  S('stop', {offset: '0', 'stop-color': '#1b1d22'}, lg);
+  S('stop', {offset: '.5', 'stop-color': '#2a2d34'}, lg);
+  S('stop', {offset: '1', 'stop-color': '#1b1d22'}, lg);
+  const rg = S('radialGradient', {id: 'cab-' + id, cx: '.45', cy: '.4', r: '.65'}, defs);
+  S('stop', {offset: '0', 'stop-color': '#2d3037'}, rg);
+  S('stop', {offset: '1', 'stop-color': '#1b1d22'}, rg);
+  const g = S('g', {}, svg);
+  S('ellipse', {cx: 110, cy: 452, rx: 54, ry: 5, fill: '#000', opacity: .35}, g);
+  S('path', {d: CONTORNO, fill: 'url(#pele-' + id + ')', stroke: '#3a3d45', 'stroke-width': 1.2, 'stroke-linejoin': 'round'}, g);
+  S('ellipse', {cx: 110, cy: 32, rx: 18, ry: 22, fill: 'url(#cab-' + id + ')', stroke: '#3a3d45', 'stroke-width': 1.2}, g);
+  const det = {fill: 'none', stroke: '#3a3d45', 'stroke-width': 1, 'stroke-linecap': 'round', opacity: .8};
+  [
+    'M86,96 Q98,116 110,112 Q122,116 134,96',             // peitoral
+    'M110,118 L110,200',                                  // linha central
+    'M96,150 Q110,154 124,150', 'M97,170 Q110,173 123,170', 'M98,189 Q110,191 122,189', // abdômen
+    'M80,210 Q96,226 110,236 Q124,226 140,210',           // virilha
+    'M86,318 Q95,326 104,318', 'M116,318 Q125,326 134,318', // joelhos
+    'M84,94 Q80,110 76,124', 'M136,94 Q140,110 144,124'   // deltoides
+  ].forEach((d) => S('path', Object.assign({d}, det), g));
+}
+function contagemLocais(k) {
+  const les = L.filter((d) => d.k === k);
+  const m = new Map();
+  les.forEach((d) => m.set(d.local, (m.get(d.local) || 0) + 1));
+  return {m, total: les.length};
+}
+function desenhaCorpos() {
+  const ks = ['for', 'cam'];
+  const cont = {for: contagemLocais('for'), cam: contagemLocais('cam')};
+  const val = (k, n) => (corpoMedida === 'pct' ? n / cont[k].total : n);
+  const maxV = Math.max(...ks.flatMap((k) => Array.from(cont[k].m.entries()).filter(([l]) => PONTOS[l]).map(([, n]) => val(k, n))));
+  ks.forEach((k) => {
+    const box = document.getElementById('body-' + k);
+    box.replaceChildren();
+    const svg = S('svg', {role: 'img', 'aria-label': 'Lesões do ' + TIMES[k].nome + ' por parte do corpo', viewBox: '0 0 220 462'}, box);
+    boneco(svg, k);
+    const {m, total} = cont[k];
+    const cor = TIMES[k].cor;
+    Array.from(m.entries()).filter(([loc]) => PONTOS[loc]).sort((a, b) => b[1] - a[1]).forEach(([loc, n]) => {
+      const [cx, cy] = PONTOS[loc];
+      const v = val(k, n);
+      const r = 7 + 17 * Math.sqrt(v / maxV);
+      const g = S('g', {class: 'hit'}, svg);
+      S('circle', {cx, cy, r: r + 3, fill: cor, opacity: .16}, g);
+      S('circle', {cx, cy, r, fill: cor, stroke: '#0a0b0d', 'stroke-width': 2}, g);
+      const txt = corpoMedida === 'pct' ? Math.round(v * 100) + '%' : String(n);
+      if (r >= 10.5) {
+        const t = T(g, cx, cy + (corpoMedida === 'pct' ? 3.5 : 4), txt, {'text-anchor': 'middle'});
+        t.style.fill = '#0a0b0d'; t.style.fontWeight = 700; t.style.fontSize = corpoMedida === 'pct' ? '9.5px' : '11.5px';
+      }
+      const hit = S('circle', {cx, cy, r: Math.max(r, 14), fill: 'transparent'}, g);
+      bindTip(hit, () => {
+        const lista = L.filter((d) => d.k === k && d.local === loc).map((d) => d.j);
+        return [[loc + ' · ' + TIMES[k].nome, 't1'], [n + (n === 1 ? ' lesão' : ' lesões') + ' de ' + total + ' (' + Math.round(n / total * 100) + '%)'], [Array.from(new Set(lista)).join(', ')]];
+      });
+    });
+    const ni = m.get('Não informado') || 0;
+    document.getElementById('ni-' + k).textContent = ni ? 'Local não informado: ' + ni : ' ';
+  });
+  const locais = Array.from(new Set([...cont.for.m.keys(), ...cont.cam.m.keys()]))
+    .sort((a, b) => (a === 'Não informado') - (b === 'Não informado') || ((cont.for.m.get(b) || 0) + (cont.cam.m.get(b) || 0)) - ((cont.for.m.get(a) || 0) + (cont.cam.m.get(a) || 0)));
+  document.getElementById('body-list').replaceChildren(...locais.map((loc) => {
+    const d = H('div');
+    const f = cont.for.m.get(loc) || 0, c = cont.cam.m.get(loc) || 0;
+    const v = H('span');
+    const a = H('b', 'c-for', corpoMedida === 'pct' ? Math.round(f / cont.for.total * 100) + '%' : String(f));
+    const b = H('b', 'c-cam', corpoMedida === 'pct' ? Math.round(c / cont.cam.total * 100) + '%' : String(c));
+    v.append('Leão ', a, ' · Galo ', b);
+    d.append(H('span', null, loc), v);
+    return d;
+  }));
+}
+document.querySelectorAll('[data-cm]').forEach((b) => b.addEventListener('click', () => {
+  corpoMedida = b.dataset.cm;
+  document.querySelectorAll('[data-cm]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  desenhaCorpos();
+}));
+
+/* linha do tempo */
+function desenhaLinha(k) {
+  const box = document.getElementById('tl-' + k);
+  const time = TIMES[k];
+  const W = Math.max(300, box.clientWidth);
+  box.replaceChildren();
+  const svg = S('svg', {role: 'img', 'aria-label': 'Linha do tempo das lesões do ' + time.nome, width: '100%'}, box);
+  const d0 = toDate(time.ini), d1 = toDate(time.fim);
+  const x = (d) => (Math.min(d, d1) - d0) / (d1 - d0) * W;
+  const itens = L.filter((d) => d.k === k).map((d) => {
+    const ini = toDate(d.ini);
+    let fim = d.aberto ? d1 : (d.semData ? ini : toDate(d.fim));
+    const corta = d.aberto || fim > d1;
+    return {d, ini, fim, corta};
+  }).sort((a, b) => a.ini - b.ini || a.d.j.localeCompare(b.d.j));
+  const faixas = [];
+  itens.forEach((it) => {
+    it.x0 = x(it.ini); it.x1 = Math.max(it.x0 + 5, x(it.fim));
+    it.rot = it.d.dias !== null && it.d.dias > 28 ? it.d.j + ' · ' + it.d.dias + 'd' : null;
+    let esq = it.x0, dir = it.x1 + (it.corta ? 10 : 0);
+    if (it.rot) {
+      const tw = textW(svg, it.rot, 'strong') + 8;
+      if (dir + tw <= W) { it.lado = 'd'; dir += tw; } else { it.lado = 'e'; esq -= tw; }
+    }
+    let f = faixas.findIndex((fim) => fim + 6 < esq);
+    if (f === -1) { faixas.push(dir); f = faixas.length - 1; } else faixas[f] = dir;
+    it.f = f;
+  });
+  const topo = 8, fh = 20, bh = 12;
+  const base = topo + faixas.length * fh + 6;
+  const Hh = base + 24;
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh); svg.setAttribute('height', Hh);
+  // grade de meses
+  const ticks = [];
+  let m = new Date(Date.UTC(d0.getUTCFullYear(), d0.getUTCMonth() + 1, 1));
+  while (m <= d1) { ticks.push(new Date(m)); m = new Date(Date.UTC(m.getUTCFullYear(), m.getUTCMonth() + 1, 1)); }
+  const longo = (d1 - d0) / DIA > 400;
+  const minGap = W < 520 ? 52 : 40;
+  let lastX = -999;
+  ticks.forEach((t) => {
+    const xm = x(t);
+    const ano = t.getUTCMonth() === 0;
+    S('line', {x1: xm, x2: xm, y1: 0, y2: base, stroke: ano ? '#33363d' : '#1c1e23'}, svg);
+    const mostrar = longo ? t.getUTCMonth() % 3 === 0 : true;
+    if (mostrar && xm - lastX >= minGap && xm < W - 14) {
+      T(svg, xm, base + 17, MESES[t.getUTCMonth()] + (longo ? '/' + String(t.getUTCFullYear()).slice(2) : ''), {'text-anchor': 'middle'});
+      lastX = xm;
+    }
+  });
+  S('line', {x1: 0, x2: W, y1: base, y2: base, stroke: '#33363d'}, svg);
+  itens.forEach((it) => {
+    const y = topo + it.f * fh;
+    const g = S('g', {class: 'hit', opacity: it.d.semData ? .5 : 1}, svg);
+    S('rect', {x: it.x0, y, width: it.x1 - it.x0, height: bh, rx: 3, fill: time.cor}, g);
+    if (it.corta) S('path', {d: 'M' + (it.x1 + 2) + ',' + y + ' l8,' + bh / 2 + ' l-8,' + bh / 2 + ' z', fill: '#f2c200'}, g);
+    if (it.rot) T(g, it.lado === 'd' ? it.x1 + (it.corta ? 14 : 6) : it.x0 - 6, y + bh - 1.5, it.rot, {class: 'strong', 'text-anchor': it.lado === 'd' ? 'start' : 'end'});
+    const hit = S('rect', {x: it.x0 - 4, y: y - 4, width: Math.max(14, it.x1 - it.x0 + 8), height: bh + 8, fill: 'transparent'}, g);
+    bindTip(hit, () => tipLesao(it.d));
+    hit.addEventListener('click', () => abrirJogador(it.d.j, k));
+  });
+}
+function periodoTxt(d) {
+  if (d.semData) return dataBR(d.ini) + ' → volta sem data';
+  if (d.aberto) return dataBR(d.ini) + ' → em aberto · ' + d.dias + ' dias até 10/11/2026';
+  return dataBR(d.ini) + ' → ' + dataBR(d.fim) + ' · ' + d.dias + ' dias fora';
+}
+function tipLesao(d) {
+  const o = [[d.j + ' · ' + TIMES[d.k].nome, 't1'], [periodoTxt(d)], [d.desc, 't1'], [d.tipo + ' · ' + d.local]];
+  if (d.obs) o.push([d.obs]);
+  return o;
+}
+
+/* tipos e locais */
+const ORDEM_T = ['Lesão muscular', 'Edema muscular', 'Articular / ligamentar', 'Trauma / ósseo', 'Doença / saúde', 'Outros / não especificado'];
+function barras(boxId, campo, ordem) {
+  const box = document.getElementById(boxId);
+  const tot = {for: L.filter((d) => d.k === 'for').length, cam: L.filter((d) => d.k === 'cam').length};
+  const c = (k, v) => L.filter((d) => d.k === k && d[campo] === v).length;
+  let cats = ordem || Array.from(new Set(L.map((d) => d[campo])));
+  if (!ordem) cats.sort((a, b) => (a === 'Não informado') - (b === 'Não informado') || (c('for', b) / tot.for + c('cam', b) / tot.cam) - (c('for', a) / tot.for + c('cam', a) / tot.cam));
+  const maxP = Math.max(...cats.flatMap((v) => ['for', 'cam'].map((k) => c(k, v) / tot[k])));
+  box.replaceChildren(...cats.map((v) => {
+    const row = H('div', 'hb-row');
+    row.append(H('div', 'nm', v));
+    const bars = H('div', 'hb-bars');
+    ['for', 'cam'].forEach((k) => {
+      const n = c(k, v), p = n / tot[k];
+      const b = H('div', 'hb-bar'), i = H('i');
+      i.style.width = 'calc(' + (p / maxP * 82) + '% )';
+      i.style.background = TIMES[k].cor;
+      b.append(i, H('span', null, n + ' · ' + Math.round(p * 100) + '%'));
+      bars.append(b);
+    });
+    row.append(bars);
+    return row;
+  }));
+}
+
+/* jogadores */
+function desenhaJogadores() {
+  const map = new Map();
+  L.forEach((d) => { const key = d.k + '|' + d.j; if (!map.has(key)) map.set(key, []); map.get(key).push(d); });
+  const reps = Array.from(map.entries()).filter(([, a]) => a.length > 1)
+    .map(([key, a]) => ({k: key.split('|')[0], nome: key.split('|')[1], n: a.length, dias: a.reduce((s, d) => s + (d.dias || 0), 0)}))
+    .sort((a, b) => b.n - a.n || b.dias - a.dias);
+  document.getElementById('cards').replaceChildren(...reps.map((p) => {
+    const c = H('button', 'pcard ' + p.k); c.type = 'button';
+    const st = H('div', 'ps', String(p.n)); st.append(H('small', null, 'lesões · ' + p.dias + ' dias'));
+    c.append(H('div', 'pn', p.nome), H('div', 'pt', TIMES[p.k].nome), st);
+    c.addEventListener('click', () => abrirJogador(p.nome, p.k));
+    return c;
+  }));
+  const longas = L.filter((d) => d.dias !== null).sort((a, b) => b.dias - a.dias).slice(0, 10);
+  const mx = longas[0].dias;
+  document.getElementById('longest').replaceChildren(...longas.map((d) => {
+    const r = H('button', 'lrow'); r.type = 'button';
+    const who = H('div', 'who', d.j); who.append(H('small', null, TIMES[d.k].nome + ' · ' + d.local.toLowerCase() + (d.aberto ? ' · em aberto' : '')));
+    const dd = H('div', 'd', String(d.dias)); dd.append(H('small', null, ' dias'));
+    const tr = H('div', 'track'), i = H('i'); i.style.width = (d.dias / mx * 100) + '%'; i.style.background = TIMES[d.k].cor; tr.append(i);
+    r.append(who, dd, tr);
+    r.addEventListener('click', () => abrirJogador(d.j, d.k));
+    return r;
+  }));
+}
+
+/* gaveta */
+const drawer = document.getElementById('drawer'), backdrop = document.getElementById('backdrop');
+let ultimoFoco = null;
+function abrirJogador(nome, k) {
+  ultimoFoco = document.activeElement;
+  tip.hidden = true;
+  const les = L.filter((d) => d.j === nome && d.k === k).sort((a, b) => a.ini.localeCompare(b.ini));
+  document.getElementById('drawer-nome').textContent = nome;
+  document.getElementById('drawer-time').textContent = TIMES[k].nome + ' com Vaccarini · ' + les.length + (les.length === 1 ? ' lesão' : ' lesões');
+  document.getElementById('drawer-lista').replaceChildren(...les.map((d) => {
+    const li = H('li');
+    li.append(H('div', 'when', periodoTxt(d)), H('div', 'what', d.desc), H('div', 'meta', d.tipo + ' · ' + d.local + (d.obs ? ' · ' + d.obs : '') + (d.noticia ? ' · fonte: notícias' : '')));
+    return li;
+  }));
+  drawer.hidden = false; backdrop.hidden = false;
+  document.getElementById('drawer-x').focus();
+}
+function fechar() { drawer.hidden = true; backdrop.hidden = true; if (ultimoFoco) ultimoFoco.focus(); }
+document.getElementById('drawer-x').addEventListener('click', fechar);
+backdrop.addEventListener('click', fechar);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !drawer.hidden) fechar(); });
+
+/* tabela */
+const COLT = [
+  {key: 'j', lab: 'Jogador'}, {key: 'k', lab: 'Time'}, {key: 'ini', lab: 'Lesão'}, {key: 'fim', lab: 'Volta'},
+  {key: 'dias', lab: 'Dias', num: true}, {key: 'tipo', lab: 'Tipo'}, {key: 'local', lab: 'Local'}, {key: 'desc', lab: 'Descrição'}
+];
+let ordem = {key: 'ini', dir: 1}, filtroTime = '', busca = '';
+function desenhaTabela() {
+  document.getElementById('thead').replaceChildren(...COLT.map((c) => {
+    const th = H('th', c.num ? 'n' : null), b = H('button', null, c.lab); b.type = 'button';
+    if (ordem.key === c.key) b.append(H('span', 'arr', ordem.dir > 0 ? '▲' : '▼'));
+    b.addEventListener('click', () => { ordem = {key: c.key, dir: ordem.key === c.key ? -ordem.dir : (c.num ? -1 : 1)}; desenhaTabela(); });
+    th.append(b); return th;
+  }));
+  const q = busca.trim().toLowerCase();
+  const rows = L.filter((d) => (!filtroTime || d.k === filtroTime) && (!q || [d.j, d.tipo, d.local, d.desc, TIMES[d.k].nome].join(' ').toLowerCase().includes(q)))
+    .sort((a, b) => {
+      const va = a[ordem.key], vb = b[ordem.key];
+      if (va === null || va === undefined) return 1;
+      if (vb === null || vb === undefined) return -1;
+      return (typeof va === 'number' ? va - vb : String(va).localeCompare(String(vb), 'pt')) * ordem.dir;
+    });
+  document.getElementById('tbody').replaceChildren(...rows.map((d) => {
+    const tr = H('tr');
+    const nome = H('td', 'nw', d.j); if (d.noticia) nome.append(H('span', 'tag-n', 'notícia'));
+    const time = H('td', 'nw'); time.append(H('span', 'sw ' + d.k), TIMES[d.k].nome);
+    const volta = d.aberto ? H('td', 'nw open', 'em aberto') : H('td', 'nw', d.semData ? 'sem data' : dataBR(d.fim));
+    tr.append(nome, time, H('td', 'nw', dataBR(d.ini)), volta, H('td', 'n', d.dias === null ? '—' : String(d.dias)), H('td', 'nw', d.tipo), H('td', 'nw', d.local), H('td', 'desc', d.desc + (d.obs ? ' — ' + d.obs : '')));
+    tr.addEventListener('click', () => abrirJogador(d.j, d.k));
+    return tr;
+  }));
+  document.getElementById('count').textContent = rows.length + ' de ' + L.length + ' lesões';
+}
+document.querySelectorAll('[data-tf]').forEach((b) => b.addEventListener('click', () => {
+  filtroTime = b.dataset.tf;
+  document.querySelectorAll('[data-tf]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  desenhaTabela();
+}));
+document.getElementById('busca').addEventListener('input', (e) => { busca = e.target.value; desenhaTabela(); });
+
+/* fontes */
+document.getElementById('fontes').replaceChildren(...FONTES.map(([t, u]) => {
+  const li = H('li'); const a = H('a', null, t); a.href = u; a.target = '_blank'; a.rel = 'noopener'; li.append(a); return li;
+}));
+
+/* navegação */
+const links = Array.from(document.querySelectorAll('.nav-links a'));
+const secs = links.map((a) => document.querySelector(a.getAttribute('href')));
+function marcaNav() {
+  let atual = -1;
+  secs.forEach((s, i) => { if (s.getBoundingClientRect().top < 140) atual = i; });
+  links.forEach((a, i) => a.classList.toggle('on', i === atual));
+}
+addEventListener('scroll', marcaNav, {passive: true});
+
+/* mesmo período do ano */
+const JAN = [
+  {id: 'cam', k: 'cam', nome: 'Atlético-MG 2026', per: '27/02 a 10/11/2026', ini: '2026-02-27', fim: '2026-11-10', ate: '2026-11-10', cor: '#f2f2ef'},
+  {id: 'f21', k: 'for', nome: 'Fortaleza 2021', per: '12/05 a 10/11/2021', ini: '2021-05-12', fim: '2021-11-10', ate: null, cor: '#4b8ef7'},
+  {id: 'f22', k: 'for', nome: 'Fortaleza 2022', per: '27/02 a 10/11/2022', ini: '2022-02-27', fim: '2022-11-10', ate: null, cor: '#9cc0ff', dash: '6 4'}
+];
+let janSel = 'ambos';
+const nf0 = new Intl.NumberFormat('pt-BR', {maximumFractionDigits: 0});
+const nf1 = new Intl.NumberFormat('pt-BR', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+function resumoJan(j) {
+  const les = L.filter((d) => d.k === j.k && d.ini >= j.ini && d.ini <= j.fim);
+  const fimD = toDate(j.fim);
+  const dias = les.reduce((s, d) => {
+    if (d.semData) return s;
+    const volta = d.aberto ? toDate('2026-11-10') : toDate(d.fim);
+    return s + Math.max(0, Math.round((Math.min(volta, fimD) - toDate(d.ini)) / DIA));
+  }, 0);
+  const dur = les.filter((d) => d.dias !== null).map((d) => d.dias).sort((a, b) => a - b);
+  const m = dur.length;
+  const jogos = PART.filter((p) => p.k === j.k && p.d >= j.ini && p.d <= j.fim);
+  const meses = (fimD - toDate(j.ini)) / DIA / 30.44;
+  const n = les.length;
+  const musc = les.filter((d) => d.grupo === 'Lesão muscular' || d.grupo === 'Edema muscular').length;
+  const contaAtl = new Map();
+  les.forEach((d) => contaAtl.set(d.j, (contaAtl.get(d.j) || 0) + 1));
+  return {
+    les, n, atletas: contaAtl.size, rep: Array.from(contaAtl.values()).filter((v) => v > 1).length,
+    jogos: jogos.length, p10: jogos.length ? n / jogos.length * 10 : null, dias,
+    mes: n / meses, media: m ? dur.reduce((a, b) => a + b, 0) / m : null,
+    mais28: dur.filter((x) => x > 28).length, musc: Math.round(musc / n * 100)
+  };
+}
+const JAN_LINHAS = [
+  {sep: 'Quantas lesões'},
+  {lab: 'Lesões', f: 'n', fmt: nf0},
+  {lab: 'Jogadores que se machucaram', f: 'atletas', fmt: nf0},
+  {lab: 'Jogos oficiais no período', f: 'jogos', fmt: nf0},
+  {lab: 'Lesões a cada 10 jogos', f: 'p10', fmt: nf1, big: true},
+  {lab: 'Lesões por mês', f: 'mes', fmt: nf1},
+  {sep: 'Quanto tempo ficaram fora'},
+  {lab: 'Dias de desfalque, somando todos os jogadores', f: 'dias', fmt: nf0},
+  {lab: 'Dias fora por lesão, em média', f: 'media', fmt: nf1, big: true},
+  {lab: 'Lesões longas (mais de 4 semanas fora)', f: 'mais28', fmt: nf0},
+  {sep: 'Que tipo de lesão'},
+  {lab: 'Lesões musculares', f: 'musc', pct: true},
+  {lab: 'Jogadores que se machucaram mais de uma vez', f: 'rep', fmt: nf0}
+];
+function janVisivel(id) { return id === 'cam' || janSel === 'ambos' || janSel === id; }
+function desenhaJanela() {
+  const R = {}; JAN.forEach((j) => { R[j.id] = resumoJan(j); });
+  const t = document.getElementById('jan-board');
+  const thead = H('thead'), trh = H('tr');
+  trh.append(H('th'));
+  JAN.forEach((j) => {
+    const th = H('th', janVisivel(j.id) ? null : 'hide');
+    const tn = H('span', 'tn ' + (j.id === 'f21' ? 'c-for' : j.id));
+    tn.append(H('span', 'full', j.nome), H('span', 'short', j.nome.replace('Atlético-MG', 'Galo').replace('Fortaleza', 'Leão')));
+    th.append(H('span', 'tag', j.id === 'cam' ? 'Temporada atual' : 'Com Vaccarini'), tn, H('span', 'tp', j.per));
+    trh.append(th);
+  });
+  thead.append(trh);
+  const tb = H('tbody');
+  JAN_LINHAS.forEach((r) => {
+    const tr = H('tr');
+    if (r.sep) { tr.className = 'sep'; const td = H('td', null, r.sep); td.colSpan = 4; tr.append(td); tb.append(tr); return; }
+    tr.append(H('td', 'lab', r.lab));
+    JAN.forEach((j) => {
+      const v = R[j.id][r.f];
+      const vazio = v === null || v === undefined;
+      const cls = [janVisivel(j.id) ? '' : 'hide', vazio ? 'na' : '', !vazio && r.big ? 'big ' + (j.id === 'f21' ? 'c-for' : j.id) : ''].filter(Boolean).join(' ');
+      tr.append(H('td', cls || null, vazio ? '—' : (r.pct ? v + '%' : r.fmt.format(v))));
+    });
+    tb.append(tr);
+  });
+  t.replaceChildren(thead, tb);
+  document.getElementById('jan-legend').replaceChildren(...JAN.filter((j) => janVisivel(j.id)).map((j) => {
+    const s = H('span'); const i = H('i', 'sw'); i.style.background = j.cor; s.append(i, j.nome); return s;
+  }));
+  document.getElementById('jan-note').textContent = 'Cada linha sobe um degrau a cada lesão. Os dias de desfalque contam só até 10/11 de cada ano, e as lesões do Atlético que ainda não terminaram contam até 10/11/2026. Lesões musculares incluem os edemas musculares.';
+  desenhaJanChart(R);
+}
+function desenhaJanChart(R) {
+  const box = document.getElementById('jan-chart');
+  if (!R) { R = {}; JAN.forEach((j) => { R[j.id] = resumoJan(j); }); }
+  const W = Math.max(300, box.clientWidth);
+  box.replaceChildren();
+  const svg = S('svg', {role: 'img', 'aria-label': 'Lesões acumuladas de 27/02 a 10/11 em cada temporada', width: '100%'}, box);
+  const doy = (iso, ano) => (toDate(iso) - toDate(ano + '-02-27')) / DIA;
+  const span = doy('2026-11-10', 2026);
+  const ml = 30, mr = W < 520 ? 34 : 120, mt = 10, ch = 240;
+  const maxN = Math.max(...JAN.filter((j) => janVisivel(j.id)).map((j) => R[j.id].n), 1);
+  const yMax = Math.ceil(maxN / 10) * 10;
+  const x = (d) => ml + d / span * (W - ml - mr);
+  const y = (v) => mt + ch - v / yMax * ch;
+  const Hh = mt + ch + 28;
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh); svg.setAttribute('height', Hh);
+  for (let v = 0; v <= yMax; v += 10) {
+    S('line', {x1: ml, x2: W - mr, y1: y(v), y2: y(v), stroke: v ? '#1f2126' : '#33363d'}, svg);
+    T(svg, ml - 8, y(v) + 4, String(v), {'text-anchor': 'end'});
+  }
+  ['03', '04', '05', '06', '07', '08', '09', '10', '11'].forEach((mm, i) => {
+    const xm = x(doy('2026-' + mm + '-01', 2026));
+    if (xm < ml) return;
+    if (W < 520 && i % 2) return;
+    T(svg, xm, mt + ch + 18, MESES[Number(mm) - 1], {'text-anchor': 'middle'});
+  });
+  const fins = [];
+  JAN.filter((j) => janVisivel(j.id)).forEach((j) => {
+    const ano = Number(j.ini.slice(0, 4));
+    const pts = R[j.id].les.map((d) => doy(d.ini, ano)).sort((a, b) => a - b);
+    const x0 = doy(j.ini, ano);
+    let dstr = 'M' + x(x0) + ',' + y(0), n = 0;
+    pts.forEach((p) => { dstr += ' H' + x(p) + ' V' + y(++n); });
+    dstr += ' H' + x(span);
+    S('path', {d: dstr, fill: 'none', stroke: j.cor, 'stroke-width': 2.4, 'stroke-dasharray': j.dash || null, 'stroke-linejoin': 'round'}, svg);
+    S('circle', {cx: x(span), cy: y(n), r: 4, fill: j.cor}, svg);
+    fins.push({j, n, yy: y(n)});
+    const hit = S('path', {d: dstr, fill: 'none', stroke: 'transparent', 'stroke-width': 14, class: 'hit'}, svg);
+    bindTip(hit, () => [[j.nome + ' · ' + j.per, 't1'], [n + ' lesões no período']]);
+  });
+  fins.sort((a, b) => a.yy - b.yy);
+  for (let i = 1; i < fins.length; i++) if (fins[i].yy - fins[i - 1].yy < 15) fins[i].yy = fins[i - 1].yy + 15;
+  fins.forEach((f) => {
+    const t = T(svg, x(span) + 9, f.yy + 4, W < 520 ? String(f.n) : f.n + ' · ' + f.j.nome.replace('Atlético-MG', 'Galo'), {class: 'strong'});
+    t.style.fill = f.j.cor;
+  });
+}
+document.querySelectorAll('[data-jan]').forEach((b) => b.addEventListener('click', () => {
+  janSel = b.dataset.jan;
+  document.querySelectorAll('[data-jan]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  desenhaJanela();
+}));
+
+/* o Galo ano a ano (27/02 a 10/11 de cada ano; 2026 com Vaccarini) */
+const ANOS = [{"ano": 2021, "n": 34, "atletas": 18, "jogos": 66, "p10": 5.2, "mes": 4.0, "dias": 617, "media": 18.4, "mais28": 6, "musc": 71, "rep": 10, "tipico": 5.4}, {"ano": 2022, "n": 30, "atletas": 18, "jogos": 57, "p10": 5.3, "mes": 3.6, "dias": 689, "media": 47.2, "mais28": 10, "musc": 50, "rep": 7, "tipico": 5.8}, {"ano": 2023, "n": 30, "atletas": 20, "jogos": 53, "p10": 5.7, "mes": 3.6, "dias": 805, "media": 31.9, "mais28": 12, "musc": 60, "rep": 7, "tipico": 5.1}, {"ano": 2024, "n": 33, "atletas": 22, "jogos": 58, "p10": 5.7, "mes": 3.9, "dias": 866, "media": 36.0, "mais28": 10, "musc": 45, "rep": 10, "tipico": 6.0}, {"ano": 2025, "n": 25, "atletas": 15, "jogos": 55, "p10": 4.5, "mes": 3.0, "dias": 633, "media": 28.3, "mais28": 8, "musc": 52, "rep": 7, "tipico": 6.3}, {"ano": 2026, "n": 37, "atletas": 21, "jogos": 52, "p10": 7.1, "mes": 4.4, "dias": 990, "media": 27.5, "mais28": 10, "musc": 59, "rep": 10, "tipico": 7.0, "vac": true, "p10_ate_set": 6.3}];
+function desenhaAnosTabela() {
+  const t = document.getElementById('anos-board');
+  const thead = H('thead'), trh = H('tr');
+  trh.append(H('th'));
+  ANOS.forEach((a) => {
+    const th = H('th', a.vac ? 'y26' : null);
+    th.append(H('span', 'tag', a.vac ? 'Com Vaccarini' : 'Antes dele'), H('span', 'tn', String(a.ano)), H('span', 'tp', '27/02 a 10/11'));
+    trh.append(th);
+  });
+  thead.append(trh);
+  const linhas = [
+    {sep: 'Quantas lesões'}, {lab: 'Lesões', f: 'n'}, {lab: 'Jogadores que se machucaram', f: 'atletas'}, {lab: 'Jogos oficiais no período', f: 'jogos'},
+    {lab: 'Lesões a cada 10 jogos', f: 'p10', dec: true, big: true}, {lab: 'Lesões por mês', f: 'mes', dec: true},
+    {sep: 'Quanto tempo ficaram fora'}, {lab: 'Dias de desfalque, somando todos os jogadores', f: 'dias'},
+    {lab: 'Dias fora por lesão, em média', f: 'media', dec: true, big: true}, {lab: 'Lesões longas (mais de 4 semanas fora)', f: 'mais28'},
+    {sep: 'Que tipo de lesão'}, {lab: 'Lesões musculares', f: 'musc', pct: true}, {lab: 'Jogadores que se machucaram mais de uma vez', f: 'rep'},
+    {sep: 'Comparado com a Série A do mesmo ano'},
+    {lab: 'Lesões a cada 10 jogos de um clube típico da Série A', f: 'tipico', dec: true}
+  ];
+  const tb = H('tbody');
+  linhas.forEach((r) => {
+    const tr = H('tr');
+    if (r.sep) { tr.className = 'sep'; const td = H('td', null, r.sep); td.colSpan = ANOS.length + 1; tr.append(td); tb.append(tr); return; }
+    tr.append(H('td', 'lab', r.lab));
+    ANOS.forEach((a) => {
+      const v = a[r.f];
+      let txt = r.txt ? v : (r.pct ? v + '%' : (r.dec ? nf1.format(v) : nf0.format(v)));
+      if (a.vac && r.f === 'tipico') txt += ' *';
+      tr.append(H('td', [a.vac ? 'y26' : '', r.big ? 'big' : ''].filter(Boolean).join(' ') || null, txt));
+    });
+    tb.append(tr);
+  });
+  t.replaceChildren(thead, tb);
+  const v = ANOS.find((a) => a.vac), antes = ANOS.filter((a) => !a.vac);
+  const minA = Math.min(...antes.map((a) => a.p10)), maxA = Math.max(...antes.map((a) => a.p10));
+  document.getElementById('anos-resumo').textContent = 'Antes de Vaccarini, o Galo teve entre ' + nf1.format(minA) + ' e ' + nf1.format(maxA) +
+    ' lesões a cada 10 jogos nesse período do ano. Em 2026 foram ' + nf1.format(v.p10) + ', o número mais alto da série. Mas a Série A inteira também subiu: o clube típico ficava entre ' +
+    nf1.format(Math.min(...antes.map((a) => a.tipico))) + ' e ' + nf1.format(Math.max(...antes.map((a) => a.tipico))) + ' e chegou a ' + nf1.format(v.tipico) +
+    ' em 2026. Contando só até 29/09, último dia com dados dos outros clubes, o Galo de 2026 teve ' + nf1.format(v.p10_ate_set) +
+    ' lesões a cada 10 jogos, abaixo do clube típico (' + nf1.format(v.tipico) + ').';
+}
+function desenhaAnosChart() {
+  const box = document.getElementById('anos-chart');
+  const W = Math.max(300, box.clientWidth);
+  box.replaceChildren();
+  const svg = S('svg', {role: 'img', 'aria-label': 'Lesões a cada 10 jogos do Atlético-MG em cada ano, de 27/02 a 10/11, ao lado do clube típico da Série A', width: '100%'}, box);
+  const ml = 28, mt = 24, ch = 200, mb = 52;
+  const Hh = mt + ch + mb;
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh); svg.setAttribute('height', Hh);
+  const yMax = 8;
+  const y = (v) => mt + ch - v / yMax * ch;
+  for (let v = 0; v <= yMax; v += 2) {
+    S('line', {x1: ml, x2: W, y1: y(v), y2: y(v), stroke: v ? '#1f2126' : '#33363d'}, svg);
+    T(svg, ml - 8, y(v) + 4, String(v), {'text-anchor': 'end'});
+  }
+  const band = (W - ml) / ANOS.length;
+  const bw = Math.min(64, band * 0.46);
+  ANOS.forEach((a, i) => {
+    const cx = ml + band * i + band / 2;
+    const cor = a.vac ? '#f2c200' : '#f2f2ef';
+    const g = S('g', {class: 'hit'}, svg);
+    S('rect', {x: cx - bw / 2, y: y(a.p10), width: bw, height: y(0) - y(a.p10), rx: 4, fill: cor, 'fill-opacity': a.vac ? 1 : 0.55}, g);
+    const tv = T(g, cx, y(a.p10) + 17, nf1.format(a.p10), {'text-anchor': 'middle', class: 'strong'});
+    tv.style.fill = '#0a0b0d'; tv.style.fontSize = '13px';
+    const st = Math.max(5, Math.min(13, (band - bw) / 2 - 5));
+    [[cx - bw / 2 - 3 - st, cx - bw / 2 - 3], [cx + bw / 2 + 3, cx + bw / 2 + 3 + st]].forEach(([x1, x2]) =>
+      S('line', {x1, x2, y1: y(a.tipico), y2: y(a.tipico), stroke: '#c3c5cb', 'stroke-width': 3, 'stroke-linecap': 'round'}, g));
+    const ty = T(g, cx, mt + ch + 20, String(a.ano) + (a.vac ? ' ·  com Vaccarini' : ''), {'text-anchor': 'middle', class: 'strong'});
+    if (a.vac) ty.style.fill = '#f2c200';
+    T(g, cx, mt + ch + 38, (W < 520 ? 'típico ' : 'clube típico: ') + nf1.format(a.tipico) + (a.vac ? ' *' : ''), {'text-anchor': 'middle'});
+    const hit = S('rect', {x: cx - band / 2, y: mt, width: band, height: ch + mb, fill: 'transparent'}, g);
+    bindTip(hit, () => [[String(a.ano) + (a.vac ? ' · com Vaccarini' : ' · antes de Vaccarini'), 't1'],
+      [a.n + ' lesões em ' + a.jogos + ' jogos (' + nf1.format(a.p10) + ' a cada 10 jogos)'],
+      ['Clube típico da Série A: ' + nf1.format(a.tipico) + ' a cada 10 jogos' + (a.vac ? ' (até 29/09)' : '')]]);
+  });
+  if (W < 520) svg.querySelectorAll('text').forEach((t) => { if (t.textContent.includes('com Vaccarini')) t.textContent = '2026 *'; });
+}
+
+function graficos() { desenhaJanChart(); desenhaAnosChart(); desenhaLinha('for'); desenhaLinha('cam'); }
+desenhaKpis(); desenhaPlacar(); desenhaJanela(); desenhaAnosTabela(); desenhaCorpos(); barras('hb-tipo', 'grupo', ORDEM_T); barras('hb-local', 'local'); desenhaJogadores(); desenhaTabela(); graficos(); marcaNav();
+let rz = null, lastW = innerWidth;
+addEventListener('resize', () => { if (innerWidth === lastW) return; lastW = innerWidth; clearTimeout(rz); rz = setTimeout(graficos, 150); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(graficos);
+</script>
+</body>
+</html>
