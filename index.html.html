@@ -1209,7 +1209,7 @@ function desenhaAnosChart() {
   const W = Math.max(300, box.clientWidth);
   box.replaceChildren();
   const svg = S('svg', {role: 'img', 'aria-label': 'Lesões a cada 10 jogos do Atlético-MG em cada ano, de 27/02 a 10/11, ao lado do clube típico da Série A', width: '100%'}, box);
-  const ml = 28, mt = 24, ch = 200, mb = 52;
+  const ml = 28, mt = 24, ch = 200, mb = 32;
   const Hh = mt + ch + mb;
   svg.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh); svg.setAttribute('height', Hh);
   const yMax = 8;
@@ -1238,7 +1238,6 @@ function desenhaAnosChart() {
       S('line', {x1, x2, y1: y(a.tipico), y2: y(a.tipico), stroke: '#c6cfdc', 'stroke-width': 3, 'stroke-linecap': 'round'}, g));
     const ty = T(g, cx, mt + ch + 20, String(a.ano) + (a.vac ? ' ·  com Vaccarini' : ''), {'text-anchor': 'middle', class: 'strong'});
     if (a.vac) ty.style.fill = '#ffc81a';
-    T(g, cx, mt + ch + 38, (W < 520 ? 'típico ' : 'clube típico: ') + nf1.format(a.tipico) + (a.vac ? ' *' : ''), {'text-anchor': 'middle'});
     const hit = S('rect', {x: cx - band / 2, y: mt, width: band, height: ch + mb, fill: 'transparent'}, g);
     bindTip(hit, () => [[String(a.ano) + (a.vac ? ' · com Vaccarini' : ' · antes de Vaccarini'), 't1'],
       [a.n + ' lesões em ' + a.jogos + ' jogos (' + nf1.format(a.p10) + ' a cada 10 jogos)'],
