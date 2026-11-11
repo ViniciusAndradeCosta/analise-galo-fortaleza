@@ -304,6 +304,13 @@ details a{color:var(--muted);word-break:break-word;text-decoration-color:var(--l
 details a:hover{color:var(--fg);text-decoration-color:var(--ouro)}
 footer{position:relative;border-top:1px solid var(--line2);padding-block:28px 44px;color:var(--faint);font-size:12.5px}
 footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(77,148,255,.45),rgba(255,200,26,.35),transparent)}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+footer .aviso{margin:0;max-width:62ch}
+.credito{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--muted)}
+.credito b{color:var(--fg);font-weight:600}
+.gh{display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border:1px solid var(--line2);border-radius:999px;background:rgba(9,13,20,.6);color:var(--fg);text-decoration:none;transition:border-color .15s,box-shadow .15s}
+.gh:hover{border-color:rgba(255,200,26,.55);box-shadow:0 0 20px -6px rgba(255,200,26,.55)}
+.gh svg{width:15px;height:15px;fill:currentColor;flex:none}
 
 /* entrada ao rolar */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
@@ -546,7 +553,18 @@ footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;b
   </section>
 </main>
 
-<footer><div class="wrap">Página de torcedor, feita por curiosidade, sem ligação com o Clube Atlético Mineiro, o Fortaleza Esporte Clube ou Adrián Vaccarini. Dados até 10/11/2026.</div></footer>
+<footer>
+  <div class="wrap">
+    <p class="aviso">Página de torcedor, feita por curiosidade, sem ligação com o Clube Atlético Mineiro, o Fortaleza Esporte Clube ou Adrián Vaccarini. Dados até 10/11/2026.</p>
+    <div class="credito">
+      <span>Desenvolvido por <b>Vinicius Andrade Costa</b></span>
+      <a class="gh" href="https://github.com/ViniciusAndradeCosta" target="_blank" rel="noopener" aria-label="GitHub de Vinicius Andrade Costa">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        github.com/ViniciusAndradeCosta
+      </a>
+    </div>
+  </div>
+</footer>
 
 <div class="tip" id="tip" hidden></div>
 <div class="backdrop" id="backdrop" hidden></div>
