@@ -124,7 +124,8 @@ h1 .x{color:var(--ouro);font-weight:300;padding-inline:.14em;text-shadow:0 0 24p
 .so-galo .board .col-for{display:none}
 .so-galo #board{min-width:0}
 @media (max-width:640px){.so-galo #board th,.so-galo #board td{padding-inline:10px}.so-galo #board .tn{font-size:17px}}
-.so-galo .bodies{grid-template-columns:minmax(0,1fr);max-width:440px;margin-inline:auto}
+body:not(.so-galo) .so-galo-only{display:none!important}
+.so-galo #corpo .bodies{display:none}
 .so-galo .tl + .tl{margin-top:0;padding-top:0;border-top:0}
 
 /* kpis */
@@ -240,6 +241,23 @@ h2{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(26px,3.2v
 .body-list span:last-child{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 .body-list b{font-weight:600}
 @media (max-width:480px){.bodies{gap:8px}.body-card{padding:12px 4px 8px}.body-card .h3{font-size:10px;letter-spacing:.08em}}
+
+.bodies-anos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.bodies-anos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+.bodies-anos .body-card svg{max-width:200px}
+.body-card .ano-per{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin:-8px 0 4px}
+.body-card.y26{border-color:rgba(255,200,26,.35)}
+.body-card.y26 .h3{color:var(--ouro)}
+.corpo-tab-wrap{grid-column:1/-1;overflow-x:auto}
+.corpo-tab{width:100%;border-collapse:collapse;min-width:480px;font-variant-numeric:tabular-nums}
+.corpo-tab th,.corpo-tab td{padding:7px 10px;border-bottom:1px dashed var(--line2);text-align:right;white-space:nowrap}
+.corpo-tab th:first-child,.corpo-tab td:first-child{text-align:left}
+.corpo-tab th{font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:.12em;color:var(--muted)}
+.corpo-tab td{font-family:var(--mono);font-size:12px}
+.corpo-tab td:first-child{font-family:var(--body);font-size:13px}
+.corpo-tab td.zero{color:var(--faint)}
+.corpo-tab .y26{color:var(--ouro)}
+.corpo-tab tfoot td{color:var(--muted);border-bottom:0}
 
 /* jogadores */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:10px}
@@ -450,11 +468,17 @@ footer .aviso{margin:0;max-width:62ch}
       <div>
         <p class="eyebrow">04</p>
         <h2>Onde dói</h2>
-        <p class="sub">Em que parte do corpo foram as lesões de cada período com Vaccarini. Quanto maior o círculo, mais lesões naquele lugar; os dois bonecos usam o mesmo tamanho de círculo. Passe o mouse ou toque num círculo para ver os jogadores.</p>
+        <p class="sub">Em que parte do corpo foram as lesões. Quanto maior o círculo, mais lesões naquele lugar; todos os bonecos usam o mesmo tamanho de círculo. Na vista “Só o Galo”, aparece um boneco para cada ano. Passe o mouse ou toque num círculo para ver os jogadores.</p>
       </div>
-      <div class="seg" role="group" aria-label="Medida do mapa do corpo">
-        <button type="button" data-cm="n" aria-pressed="true">Número de lesões</button>
-        <button type="button" data-cm="pct" aria-pressed="false">% do total</button>
+      <div class="sec-side">
+        <div class="seg so-galo-only" role="group" aria-label="Período de cada ano">
+          <button type="button" data-am="periodo" aria-pressed="true">Mesmo período do ano</button>
+          <button type="button" data-am="temporada" aria-pressed="false">Temporada inteira</button>
+        </div>
+        <div class="seg" role="group" aria-label="Medida do mapa do corpo">
+          <button type="button" data-cm="n" aria-pressed="true">Número de lesões</button>
+          <button type="button" data-cm="pct" aria-pressed="false">% do total</button>
+        </div>
       </div>
     </div>
     <div class="panel">
@@ -462,6 +486,7 @@ footer .aviso{margin:0;max-width:62ch}
         <div class="body-card so-todos"><p class="h3"><span class="sw for"></span>Fortaleza com Vaccarini</p><div id="body-for"></div><div class="ni" id="ni-for"></div></div>
         <div class="body-card"><p class="h3"><span class="sw cam"></span>Atlético-MG com Vaccarini</p><div id="body-cam"></div><div class="ni" id="ni-cam"></div></div>
       </div>
+      <div class="bodies-anos so-galo-only" id="bodies-anos"></div>
       <div class="body-list" id="body-list"></div>
     </div>
   </section>
@@ -749,7 +774,8 @@ let corpoMedida = 'n';
 const PONTOS = {
   'Cabeça': [110, 30], 'Ombro': [72, 90], 'Cotovelo': [55, 172], 'Costela': [92, 138], 'Costas': [129, 166],
   'Quadril': [91, 214], 'Glúteo': [129, 220], 'Coxa': [92, 268], 'Joelho': [127, 324], 'Panturrilha': [93, 362],
-  'Tornozelo': [126, 412], 'Pé': [94, 436]
+  'Tornozelo': [126, 412], 'Pé': [94, 436],
+  'Mão': [45, 256], 'Lombar': [129, 192], 'Tórax': [112, 112], 'Face': [128, 46], 'Coluna': [110, 178], 'Canela': [127, 372]
 };
 /* meia silhueta (lado esquerdo da tela), espelhada para o outro lado */
 const MEIA = [
@@ -795,59 +821,104 @@ function boneco(svg, id) {
     'M84,94 Q80,110 76,124', 'M136,94 Q140,110 144,124'   // deltoides
   ].forEach((d) => S('path', Object.assign({d}, det), g));
 }
-function contagemLocais(k) {
-  const les = L.filter((d) => d.k === k);
+function contagem(lista) {
   const m = new Map();
-  les.forEach((d) => m.set(d.local, (m.get(d.local) || 0) + 1));
-  return {m, total: les.length};
+  lista.forEach((d) => m.set(d.local, (m.get(d.local) || 0) + 1));
+  return {m, total: lista.length, lista};
+}
+const contagemLocais = (k) => contagem(L.filter((d) => d.k === k));
+/* lesões do Galo em cada ano, na janela escolhida (mesmo período do ano ou temporada inteira) */
+const ANOS_CORPO = [2021, 2022, 2023, 2024, 2025, 2026];
+function janelaAno(y) {
+  if (y === 2026) return ['2026-02-27', '2026-11-13'];
+  if (anosModo === 'temporada') return [y === 2021 ? '2021-02-28' : y + '-01-01', y + '-12-31'];
+  return [y + '-02-27', y + '-11-13'];
+}
+function lesoesDoAno(y) {
+  const [a, b] = janelaAno(y);
+  return (y === 2026 ? L.filter((d) => d.k === 'cam') : LA).filter((d) => d.ini >= a && d.ini <= b);
+}
+const valCorpo = (c, n) => (corpoMedida === 'pct' ? n / c.total : n);
+const fmtCorpo = (c, n) => (corpoMedida === 'pct' ? (c.total ? Math.round(n / c.total * 100) : 0) + '%' : String(n));
+const maxCorpo = (cs) => Math.max(1e-9, ...cs.flatMap((c) => [...c.m.entries()].filter(([l]) => PONTOS[l]).map(([, n]) => valCorpo(c, n))));
+/* desenha um boneco com os círculos; devolve quantas lesões não têm local */
+function pintaCorpo(box, gid, c, cor, maxV, nome) {
+  box.replaceChildren();
+  const svg = S('svg', {role: 'img', 'aria-label': 'Lesões por parte do corpo: ' + nome, viewBox: '0 0 220 462'}, box);
+  boneco(svg, gid);
+  Array.from(c.m.entries()).filter(([loc]) => PONTOS[loc]).sort((a, b) => b[1] - a[1]).forEach(([loc, n]) => {
+    const [cx, cy] = PONTOS[loc];
+    const v = valCorpo(c, n);
+    const r = 7 + 17 * Math.sqrt(v / maxV);
+    const g = S('g', {class: 'hit'}, svg);
+    S('circle', {cx, cy, r: r + 5, fill: 'none', stroke: cor, 'stroke-opacity': .35, 'stroke-dasharray': '2 3'}, g);
+    S('circle', {cx, cy, r: r + 2.5, fill: cor, opacity: .18}, g);
+    S('circle', {cx, cy, r, fill: cor, stroke: '#05070b', 'stroke-width': 2}, g);
+    if (r >= 10.5) {
+      const t = T(g, cx, cy + (corpoMedida === 'pct' ? 3.5 : 4), fmtCorpo(c, n), {'text-anchor': 'middle'});
+      t.style.fill = '#05070b'; t.style.fontWeight = 700; t.style.fontFamily = 'var(--body)'; t.style.fontSize = corpoMedida === 'pct' ? '9.5px' : '11.5px';
+    }
+    const hit = S('circle', {cx, cy, r: Math.max(r, 14), fill: 'transparent'}, g);
+    bindTip(hit, () => {
+      const nomes = c.lista.filter((d) => d.local === loc).map((d) => d.j);
+      return [[loc + ' · ' + nome, 't1'], [n + (n === 1 ? ' lesão' : ' lesões') + ' de ' + c.total + ' (' + Math.round(n / c.total * 100) + '%)'], [Array.from(new Set(nomes)).join(', ')]];
+    });
+  });
+  return c.m.get('Não informado') || 0;
 }
 function desenhaCorpos() {
-  const ks = timesVisiveis();
+  if (soGalo) { desenhaCorposAnos(); return; }
   const cont = {for: contagemLocais('for'), cam: contagemLocais('cam')};
-  const val = (k, n) => (corpoMedida === 'pct' ? n / cont[k].total : n);
-  const maxV = Math.max(...ks.flatMap((k) => Array.from(cont[k].m.entries()).filter(([l]) => PONTOS[l]).map(([, n]) => val(k, n))));
-  ks.forEach((k) => {
-    const box = document.getElementById('body-' + k);
-    box.replaceChildren();
-    const svg = S('svg', {role: 'img', 'aria-label': 'Lesões do ' + TIMES[k].nome + ' por parte do corpo', viewBox: '0 0 220 462'}, box);
-    boneco(svg, k);
-    const {m, total} = cont[k];
-    const cor = TIMES[k].cor;
-    Array.from(m.entries()).filter(([loc]) => PONTOS[loc]).sort((a, b) => b[1] - a[1]).forEach(([loc, n]) => {
-      const [cx, cy] = PONTOS[loc];
-      const v = val(k, n);
-      const r = 7 + 17 * Math.sqrt(v / maxV);
-      const g = S('g', {class: 'hit'}, svg);
-      S('circle', {cx, cy, r: r + 5, fill: 'none', stroke: cor, 'stroke-opacity': .35, 'stroke-dasharray': '2 3'}, g);
-      S('circle', {cx, cy, r: r + 2.5, fill: cor, opacity: .18}, g);
-      S('circle', {cx, cy, r, fill: cor, stroke: '#05070b', 'stroke-width': 2}, g);
-      const txt = corpoMedida === 'pct' ? Math.round(v * 100) + '%' : String(n);
-      if (r >= 10.5) {
-        const t = T(g, cx, cy + (corpoMedida === 'pct' ? 3.5 : 4), txt, {'text-anchor': 'middle'});
-        t.style.fill = '#05070b'; t.style.fontWeight = 700; t.style.fontFamily = 'var(--body)'; t.style.fontSize = corpoMedida === 'pct' ? '9.5px' : '11.5px';
-      }
-      const hit = S('circle', {cx, cy, r: Math.max(r, 14), fill: 'transparent'}, g);
-      bindTip(hit, () => {
-        const lista = L.filter((d) => d.k === k && d.local === loc).map((d) => d.j);
-        return [[loc + ' · ' + TIMES[k].nome, 't1'], [n + (n === 1 ? ' lesão' : ' lesões') + ' de ' + total + ' (' + Math.round(n / total * 100) + '%)'], [Array.from(new Set(lista)).join(', ')]];
-      });
-    });
-    const ni = m.get('Não informado') || 0;
+  const maxV = maxCorpo([cont.for, cont.cam]);
+  ['for', 'cam'].forEach((k) => {
+    const ni = pintaCorpo(document.getElementById('body-' + k), k, cont[k], TIMES[k].cor, maxV, TIMES[k].nome);
     document.getElementById('ni-' + k).textContent = ni ? 'Local não informado: ' + ni : ' ';
   });
-  const soma = (loc) => ks.reduce((s, k) => s + (cont[k].m.get(loc) || 0), 0);
-  const locais = Array.from(new Set(ks.flatMap((k) => [...cont[k].m.keys()])))
+  const soma = (loc) => (cont.for.m.get(loc) || 0) + (cont.cam.m.get(loc) || 0);
+  const locais = Array.from(new Set([...cont.for.m.keys(), ...cont.cam.m.keys()]))
     .sort((a, b) => (a === 'Não informado') - (b === 'Não informado') || soma(b) - soma(a));
   document.getElementById('body-list').replaceChildren(...locais.map((loc) => {
-    const d = H('div');
-    const f = cont.for.m.get(loc) || 0, c = cont.cam.m.get(loc) || 0;
-    const v = H('span');
-    const a = H('b', 'c-for', corpoMedida === 'pct' ? Math.round(f / cont.for.total * 100) + '%' : String(f));
-    const b = H('b', 'c-cam', corpoMedida === 'pct' ? Math.round(c / cont.cam.total * 100) + '%' : String(c));
-    if (soGalo) v.append(b); else v.append('Leão ', a, ' · Galo ', b);
+    const d = H('div'), v = H('span');
+    v.append('Leão ', H('b', 'c-for', fmtCorpo(cont.for, cont.for.m.get(loc) || 0)), ' · Galo ', H('b', 'c-cam', fmtCorpo(cont.cam, cont.cam.m.get(loc) || 0)));
     d.append(H('span', null, loc), v);
     return d;
   }));
+}
+/* vista "Só o Galo": um boneco por ano e uma tabela local × ano */
+function desenhaCorposAnos() {
+  const dados = anosDados();
+  const cs = ANOS_CORPO.map((y) => contagem(lesoesDoAno(y)));
+  const maxV = maxCorpo(cs);
+  document.getElementById('bodies-anos').replaceChildren(...ANOS_CORPO.map((y, i) => {
+    const vac = y === 2026;
+    const card = H('div', 'body-card' + (vac ? ' y26' : ''));
+    const h = H('p', 'h3'), sw = H('span', 'sw');
+    sw.style.background = vac ? 'var(--ouro)' : 'var(--cam)';
+    h.append(sw, y + (vac ? ' · com Vaccarini' : ' · antes dele'));
+    const per = (dados.find((a) => a.ano === y) || {}).per || '';
+    const box = H('div');
+    const ni = pintaCorpo(box, 'a' + y, cs[i], vac ? '#ffc81a' : TIMES.cam.cor, maxV, 'Galo ' + y + (vac ? ', com Vaccarini' : ''));
+    card.append(h, H('div', 'ano-per', per + ' · ' + cs[i].total + ' lesões'), box, H('div', 'ni', ni ? 'Local não informado: ' + ni : ' '));
+    return card;
+  }));
+  const soma = (loc) => cs.reduce((s, c) => s + (c.m.get(loc) || 0), 0);
+  const locais = Array.from(new Set(cs.flatMap((c) => [...c.m.keys()])))
+    .sort((a, b) => (a === 'Não informado') - (b === 'Não informado') || soma(b) - soma(a));
+  const cls = (i, extra) => [ANOS_CORPO[i] === 2026 ? 'y26' : '', extra || ''].filter(Boolean).join(' ') || null;
+  const trh = H('tr');
+  trh.append(H('th', null, 'Local'), ...ANOS_CORPO.map((y, i) => H('th', cls(i), String(y))));
+  const thead = H('thead'), tb = H('tbody'), tf = H('tfoot'), trt = H('tr');
+  thead.append(trh);
+  locais.forEach((loc) => {
+    const tr = H('tr');
+    tr.append(H('td', null, loc), ...cs.map((c, i) => { const n = c.m.get(loc) || 0; return H('td', cls(i, n ? '' : 'zero'), fmtCorpo(c, n)); }));
+    tb.append(tr);
+  });
+  trt.append(H('td', null, 'Lesões no período'), ...cs.map((c, i) => H('td', cls(i), String(c.total))));
+  tf.append(trt);
+  const t = H('table', 'corpo-tab'), wrap = H('div', 'corpo-tab-wrap');
+  t.append(thead, tb, tf); wrap.append(t);
+  document.getElementById('body-list').replaceChildren(wrap);
 }
 document.querySelectorAll('[data-cm]').forEach((b) => b.addEventListener('click', () => {
   corpoMedida = b.dataset.cm;
@@ -1310,12 +1381,12 @@ function graficos() { desenhaSinal('for'); desenhaSinal('cam'); desenhaJanChart(
 /* Galo ano a ano: mesmo período do ano ou temporada inteira */
 document.querySelectorAll('[data-am]').forEach((b) => b.addEventListener('click', () => {
   anosModo = b.dataset.am;
-  document.querySelectorAll('[data-am]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  document.querySelectorAll('[data-am]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.am === anosModo)));
   document.getElementById('anos-titulo').textContent = anosModo === 'temporada'
     ? 'Lesões a cada 10 jogos na temporada inteira (2026: com Vaccarini, de 27/02 a 13/11)'
     : 'Lesões a cada 10 jogos, de 27/02 a 13/11 de cada ano';
   document.getElementById('anos-nota').hidden = anosModo !== 'temporada';
-  desenhaAnosTabela(); desenhaAnosChart();
+  desenhaAnosTabela(); desenhaAnosChart(); desenhaCorpos();
 }));
 
 /* troca de vista: "Os dois" / "Só o Galo" */
