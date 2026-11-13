@@ -119,6 +119,8 @@ h1 .x{color:var(--ouro);font-weight:300;padding-inline:.14em;text-shadow:0 0 24p
 /* vista "só o Galo": esconde o que é do Fortaleza */
 .so-galo .so-todos{display:none!important}
 .so-galo .k-v.c-for,.so-galo .kpi .meter{display:none}
+.sec-side{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+@media (max-width:900px){.sec-side{align-items:flex-start}}
 .so-galo .board .col-for{display:none}
 .so-galo #board{min-width:0}
 @media (max-width:640px){.so-galo #board th,.so-galo #board td{padding-inline:10px}.so-galo #board .tn{font-size:17px}}
@@ -425,15 +427,22 @@ footer .aviso{margin:0;max-width:62ch}
       <div>
         <p class="eyebrow">03</p>
         <h2>O Galo ano a ano</h2>
-        <p class="sub">O Atlético-MG de 2026, com Vaccarini, comparado com o próprio Atlético nos anos anteriores, sempre no mesmo período do calendário: de 27/02 a 13/11. Assim dá para ver se 2026 foge do que o clube costumava ter.</p>
+        <p class="sub">O Atlético-MG de 2026, com Vaccarini, comparado com o próprio Atlético nos anos anteriores: no mesmo período do calendário (27/02 a 13/11) ou na temporada inteira de cada ano. Assim dá para ver se 2026 foge do que o clube costumava ter.</p>
       </div>
-      <div class="legend"><span><i class="sw cam"></i>Galo antes de Vaccarini</span><span><i class="sw" style="background:var(--ouro)"></i>Galo 2026, com Vaccarini</span></div>
+      <div class="sec-side">
+        <div class="seg" role="group" aria-label="Período dos anos anteriores">
+          <button type="button" data-am="periodo" aria-pressed="true">Mesmo período do ano</button>
+          <button type="button" data-am="temporada" aria-pressed="false">Temporada inteira</button>
+        </div>
+        <div class="legend"><span><i class="sw cam"></i>Galo antes de Vaccarini</span><span><i class="sw" style="background:var(--ouro)"></i>Galo 2026, com Vaccarini</span></div>
+      </div>
     </div>
     <div class="panel">
-      <p class="h3">Lesões a cada 10 jogos, de 27/02 a 13/11 de cada ano</p>
+      <p class="h3" id="anos-titulo">Lesões a cada 10 jogos, de 27/02 a 13/11 de cada ano</p>
       <div class="chart" id="anos-chart"></div>
     </div>
     <div class="board-wrap" style="margin-top:16px"><table class="board anos" id="anos-board"></table></div>
+    <p class="note" id="anos-nota" hidden>Na temporada inteira, os anos anteriores têm mais jogos e mais meses que 2026, que vai só de 27/02 a 13/11. Para comparar, olhe as lesões a cada 10 jogos, por mês e a média de dias fora. A temporada de 2021 começa em 28/02, primeiro jogo nos dados.</p>
   </section>
 
   <section id="corpo">
@@ -1204,14 +1213,18 @@ document.querySelectorAll('[data-jan]').forEach((b) => b.addEventListener('click
 }));
 
 /* o Galo ano a ano (27/02 a 13/11 de cada ano; 2026 com Vaccarini) */
-const ANOS = [{"ano": 2021, "n": 35, "atletas": 18, "jogos": 66, "p10": 5.3, "mes": 4.1, "dias": 621, "media": 19.7, "mais28": 7, "musc": 71, "rep": 11}, {"ano": 2022, "n": 30, "atletas": 18, "jogos": 58, "p10": 5.2, "mes": 3.5, "dias": 707, "media": 47.2, "mais28": 10, "musc": 50, "rep": 7}, {"ano": 2023, "n": 30, "atletas": 20, "jogos": 54, "p10": 5.6, "mes": 3.5, "dias": 817, "media": 31.9, "mais28": 12, "musc": 60, "rep": 7}, {"ano": 2024, "n": 33, "atletas": 22, "jogos": 59, "p10": 5.6, "mes": 3.9, "dias": 869, "media": 36.0, "mais28": 10, "musc": 45, "rep": 10}, {"ano": 2025, "n": 25, "atletas": 15, "jogos": 56, "p10": 4.5, "mes": 2.9, "dias": 718, "media": 37.6, "mais28": 10, "musc": 52, "rep": 7}, {"ano": 2026, "n": 38, "atletas": 21, "jogos": 52, "p10": 7.3, "mes": 4.5, "dias": 1006, "media": 27.2, "mais28": 10, "musc": 61, "rep": 10, "vac": true}];
+const ANOS = [{"ano": 2021, "n": 35, "atletas": 18, "jogos": 66, "p10": 5.3, "mes": 4.1, "dias": 621, "media": 19.7, "mais28": 7, "musc": 71, "rep": 11, "per": "27/02 a 13/11"}, {"ano": 2022, "n": 30, "atletas": 18, "jogos": 58, "p10": 5.2, "mes": 3.5, "dias": 707, "media": 47.2, "mais28": 10, "musc": 50, "rep": 7, "per": "27/02 a 13/11"}, {"ano": 2023, "n": 30, "atletas": 20, "jogos": 54, "p10": 5.6, "mes": 3.5, "dias": 817, "media": 31.9, "mais28": 12, "musc": 60, "rep": 7, "per": "27/02 a 13/11"}, {"ano": 2024, "n": 33, "atletas": 22, "jogos": 59, "p10": 5.6, "mes": 3.9, "dias": 869, "media": 36.0, "mais28": 10, "musc": 45, "rep": 10, "per": "27/02 a 13/11"}, {"ano": 2025, "n": 25, "atletas": 15, "jogos": 56, "p10": 4.5, "mes": 2.9, "dias": 718, "media": 37.6, "mais28": 10, "musc": 52, "rep": 7, "per": "27/02 a 13/11"}, {"ano": 2026, "n": 38, "atletas": 21, "jogos": 52, "p10": 7.3, "mes": 4.5, "dias": 1006, "media": 27.2, "mais28": 10, "musc": 61, "rep": 10, "vac": true, "per": "27/02 a 13/11"}];
+/* temporada inteira (2021 a partir de 28/02, primeiro jogo nos dados; 2026 = período com Vaccarini) */
+const ANOS_TEMPORADA = [{"ano": 2021, "n": 37, "atletas": 19, "jogos": 75, "p10": 4.9, "mes": 3.7, "dias": 692, "media": 19.1, "mais28": 7, "musc": 73, "rep": 11, "per": "28/02 a 31/12"}, {"ano": 2022, "n": 32, "atletas": 18, "jogos": 66, "p10": 4.8, "mes": 2.7, "dias": 1011, "media": 45.5, "mais28": 11, "musc": 50, "rep": 8, "per": "01/01 a 31/12"}, {"ano": 2023, "n": 37, "atletas": 20, "jogos": 66, "p10": 5.6, "mes": 3.1, "dias": 1073, "media": 29.9, "mais28": 14, "musc": 62, "rep": 10, "per": "01/01 a 31/12"}, {"ano": 2024, "n": 42, "atletas": 24, "jogos": 73, "p10": 5.8, "mes": 3.5, "dias": 1124, "media": 33.2, "mais28": 13, "musc": 52, "rep": 12, "per": "01/01 a 31/12"}, {"ano": 2025, "n": 33, "atletas": 20, "jogos": 73, "p10": 4.5, "mes": 2.8, "dias": 954, "media": 34.4, "mais28": 12, "musc": 55, "rep": 8, "per": "01/01 a 31/12"}, {"ano": 2026, "n": 38, "atletas": 21, "jogos": 52, "p10": 7.3, "mes": 4.5, "dias": 1006, "media": 27.2, "mais28": 10, "musc": 61, "rep": 10, "vac": true, "per": "27/02 a 13/11"}];
+let anosModo = 'periodo';
+const anosDados = () => (anosModo === 'temporada' ? ANOS_TEMPORADA : ANOS);
 function desenhaAnosTabela() {
   const t = document.getElementById('anos-board');
   const thead = H('thead'), trh = H('tr');
   trh.append(H('th'));
-  ANOS.forEach((a) => {
+  anosDados().forEach((a) => {
     const th = H('th', a.vac ? 'y26' : null);
-    th.append(H('span', 'tag', a.vac ? 'Com Vaccarini' : 'Antes dele'), H('span', 'tn', String(a.ano)), H('span', 'tp', '27/02 a 13/11'));
+    th.append(H('span', 'tag', a.vac ? 'Com Vaccarini' : 'Antes dele'), H('span', 'tn', String(a.ano)), H('span', 'tp', a.per));
     trh.append(th);
   });
   thead.append(trh);
@@ -1225,9 +1238,9 @@ function desenhaAnosTabela() {
   const tb = H('tbody');
   linhas.forEach((r) => {
     const tr = H('tr');
-    if (r.sep) { tr.className = 'sep'; const td = H('td', null, r.sep); td.colSpan = ANOS.length + 1; tr.append(td); tb.append(tr); return; }
+    if (r.sep) { tr.className = 'sep'; const td = H('td', null, r.sep); td.colSpan = anosDados().length + 1; tr.append(td); tb.append(tr); return; }
     tr.append(H('td', 'lab', r.lab));
-    ANOS.forEach((a) => {
+    anosDados().forEach((a) => {
       const v = a[r.f];
       const txt = r.txt ? v : (r.pct ? v + '%' : (r.dec ? nf1.format(v) : nf0.format(v)));
       tr.append(H('td', [a.vac ? 'y26' : '', r.big ? 'big' : ''].filter(Boolean).join(' ') || null, txt));
@@ -1240,7 +1253,7 @@ function desenhaAnosChart() {
   const box = document.getElementById('anos-chart');
   const W = Math.max(300, box.clientWidth);
   box.replaceChildren();
-  const svg = S('svg', {role: 'img', 'aria-label': 'Lesões a cada 10 jogos do Atlético-MG em cada ano, de 27/02 a 13/11', width: '100%'}, box);
+  const svg = S('svg', {role: 'img', 'aria-label': 'Lesões a cada 10 jogos do Atlético-MG em cada ano, ' + (anosModo === 'temporada' ? 'na temporada inteira' : 'de 27/02 a 13/11'), width: '100%'}, box);
   const ml = 28, mt = 24, ch = 200, mb = 32;
   const Hh = mt + ch + mb;
   svg.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh); svg.setAttribute('height', Hh);
@@ -1256,9 +1269,9 @@ function desenhaAnosChart() {
     S('stop', {offset: '0', 'stop-color': c0, 'stop-opacity': op === 1 ? 1 : .75}, lg);
     S('stop', {offset: '1', 'stop-color': c1, 'stop-opacity': op === 1 ? .85 : .3}, lg);
   });
-  const band = (W - ml) / ANOS.length;
+  const band = (W - ml) / anosDados().length;
   const bw = Math.min(64, band * 0.46);
-  ANOS.forEach((a, i) => {
+  anosDados().forEach((a, i) => {
     const cx = ml + band * i + band / 2;
     const g = S('g', {class: 'hit'}, svg);
     if (a.vac) S('rect', {x: cx - bw / 2 - 4, y: y(a.p10) - 4, width: bw + 8, height: y(0) - y(a.p10) + 4, rx: 7, fill: '#ffc81a', opacity: .12}, g);
@@ -1293,6 +1306,17 @@ function desenhaSinal(k) {
 }
 
 function graficos() { desenhaSinal('for'); desenhaSinal('cam'); desenhaJanChart(); desenhaAnosChart(); desenhaLinha('for'); desenhaLinha('cam'); }
+
+/* Galo ano a ano: mesmo período do ano ou temporada inteira */
+document.querySelectorAll('[data-am]').forEach((b) => b.addEventListener('click', () => {
+  anosModo = b.dataset.am;
+  document.querySelectorAll('[data-am]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  document.getElementById('anos-titulo').textContent = anosModo === 'temporada'
+    ? 'Lesões a cada 10 jogos na temporada inteira (2026: com Vaccarini, de 27/02 a 13/11)'
+    : 'Lesões a cada 10 jogos, de 27/02 a 13/11 de cada ano';
+  document.getElementById('anos-nota').hidden = anosModo !== 'temporada';
+  desenhaAnosTabela(); desenhaAnosChart();
+}));
 
 /* troca de vista: "Os dois" / "Só o Galo" */
 function aplicaVista() {
